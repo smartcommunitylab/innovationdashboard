@@ -1,0 +1,124 @@
+@font-face {
+	font-family: 'smartTorino';
+	src:url('fonts/smartTorino.eot?cxqrzy');
+	src:url('fonts/smartTorino.eot?#iefixcxqrzy') format('embedded-opentype'),
+		url('fonts/smartTorino.ttf?cxqrzy') format('truetype'),
+		url('fonts/smartTorino.woff?cxqrzy') format('woff'),
+		url('fonts/smartTorino.svg?cxqrzy#smartTorino') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="smart-"], [class*=" smart-"] {
+	font-family: 'smartTorino';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.smart-cat_energy:before {
+	content: "\e619";
+}
+.smart-cat_people:before {
+	content: "\e620";
+}
+.smart-cat_environment:before {
+	content: "\e61a";
+}
+.smart-cat_economy:before {
+	content: "\e61b";
+}
+.smart-cat_mobility:before {
+	content: "\e61c";
+}
+.smart-cat_government:before {
+	content: "\e61d";
+}
+.smart-cat_living:before {
+	content: "\e61e";
+}
+.smart-cat_planning:before {
+	content: "\e61f";
+}
+.smart-like-selected:before {
+	content: "\e600";
+}
+.smart-like-unselected:before {
+	content: "\e601";
+}
+.smart-facebook:before {
+	content: "\e602";
+}
+.smart-twitter:before {
+	content: "\e603";
+}
+.smart-pinterest:before {
+	content: "\e604";
+}
+.smart-google-plus:before {
+	content: "\e605";
+}
+.smart-user:before {
+	content: "\e606";
+}
+.smart-where:before {
+	content: "\e607";
+}
+.smart-what:before {
+	content: "\e608";
+}
+.smart-category:before {
+	content: "\e609";
+}
+.smart-innovation:before {
+	content: "\e60a";
+}
+.smart-financing:before {
+	content: "\e60b";
+}
+.smart-website:before {
+	content: "\e60c";
+}
+.smart-masterplan:before {
+	content: "\e60d";
+}
+.smart-pa-plus:before {
+	content: "\e60e";
+}
+.smart-company:before {
+	content: "\e60f";
+}
+.smart-non-profit:before {
+	content: "\e610";
+}
+.smart-social:before {
+	content: "\e611";
+}
+.smart-enviroment:before {
+	content: "\e612";
+}
+.smart-economy:before {
+	content: "\e613";
+}
+.smart-price:before {
+	content: "\e614";
+}
+.smart-pa:before {
+	content: "\e615";
+}
+.smart-city-user:before {
+	content: "\e616";
+}
+.smart-citizen:before {
+	content: "\e617";
+}
+.smart-territory-radius:before {
+	content: "\e618";
+}
