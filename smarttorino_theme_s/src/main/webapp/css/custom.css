@@ -134,6 +134,7 @@ li.cat-square {
 	color: #ffffff;
 	background-repeat: no-repeat;
 	background-position: bottom left;
+	background-color: #eeeeee;
 }
 
 li.cat-square .cat-name {
@@ -231,10 +232,16 @@ h3.cat-page-title {
 	line-height: inherit;
 	-webkit-transform: rotateZ(45deg);
 	transform: rotateZ(45deg);
-	line-height: inherit;
+	font-size: 7em;
+}
+
+.cat-tear img {
+	/* display: block; */
+	text-align: center;
 	-webkit-transform: rotateZ(45deg);
 	transform: rotateZ(45deg);
-	font-size: 7em;
+	width: 65%;
+	height: 65%;
 }
 
 ul.cat-projects-previews {

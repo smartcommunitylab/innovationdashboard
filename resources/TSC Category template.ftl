@@ -1,8 +1,9 @@
-<div class="row-fluid">
+<div class="row-fluid cat-page-container">
     <div class="span2">
         <!-- drop with category image -->
         <div class="cat-tear" style="background-color:${color.getData()}">
-            <i class="smart-cat_${stringUtil.valueOf(.vars['reserved-article-title'].data)?lower_case}"></i>
+            <img alt="Image" src="${image.getData()}" />
+            <!-- <i class="smart-cat_${stringUtil.valueOf(.vars['reserved-article-title'].data)?lower_case}"></i> -->
         </div>
     </div>
     <div class="span10">
