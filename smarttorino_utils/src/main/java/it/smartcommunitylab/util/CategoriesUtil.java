@@ -20,6 +20,29 @@ import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
 
 public class CategoriesUtil {
 
+	public static String hex2rgb(String colorStr) {
+		return hex2rgba(colorStr, null);
+	}
+
+	public static String hex2rgba(String colorStr, Float opacity) {
+		String s = "";
+		try {
+			Integer r = Integer.valueOf(colorStr.substring(1, 3), 16);
+			Integer g = Integer.valueOf(colorStr.substring(3, 5), 16);
+			Integer b = Integer.valueOf(colorStr.substring(5, 7), 16);
+
+			if (opacity != null && opacity >= 0 && opacity <= 100) {
+				s = "rgba(" + r + "," + g + "," + b + "," + opacity + ")";
+			} else {
+				s = "rgb(" + r + "," + g + "," + b + ")";
+			}
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+
+		return s;
+	}
+
 	public static Map<String, String> getCategoriesColors(long groupId) throws SystemException, PortalException {
 		return getStructureElementValue(groupId, Constants.CATEGORY_STRUCTURE_COLOR);
 	}
@@ -27,12 +50,13 @@ public class CategoriesUtil {
 	public static Map<String, String> getCategoriesImages(long groupId) throws SystemException, PortalException {
 		return getStructureElementValue(groupId, Constants.CATEGORY_STRUCTURE_IMAGE);
 	}
-	
+
 	public static Map<String, String> getCategoriesSquareImages(long groupId) throws SystemException, PortalException {
 		return getStructureElementValue(groupId, Constants.CATEGORY_STRUCTURE_SQUAREIMAGE);
 	}
-	
-	private static Map<String, String> getStructureElementValue(long groupId, String structureElement) throws SystemException, PortalException {
+
+	private static Map<String, String> getStructureElementValue(long groupId, String structureElement)
+			throws SystemException, PortalException {
 		Map<String, String> map = new HashMap<String, String>();
 		AssetEntryQuery entryQuery = new AssetEntryQuery();
 		XPath xpath = SAXReaderUtil.createXPath("dynamic-element[@name='" + structureElement + "']");
