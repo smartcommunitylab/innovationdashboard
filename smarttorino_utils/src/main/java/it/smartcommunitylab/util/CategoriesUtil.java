@@ -20,6 +20,7 @@ import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
 
 public class CategoriesUtil {
 
+	/* Colors utilities */
 	public static String hex2rgb(String colorStr) {
 		return hex2rgba(colorStr, null);
 	}
@@ -43,27 +44,61 @@ public class CategoriesUtil {
 		return s;
 	}
 
-	public static Map<String, String> getCategoriesColors(long groupId) throws SystemException, PortalException {
-		return getStructureElementValue(groupId, Constants.CATEGORY_STRUCTURE_COLOR);
+	/* TSC Categories Utils */
+	public static Map<String, String> getCategoriesColors(long groupId) {
+		try {
+			return getElementValuesByCategoryId(groupId, Constants.CATEGORY_STRUCTURE_NAME,
+					Constants.CATEGORY_STRUCTURE_COLOR);
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+
+		return null;
 	}
 
-	public static Map<String, String> getCategoriesImages(long groupId) throws SystemException, PortalException {
-		return getStructureElementValue(groupId, Constants.CATEGORY_STRUCTURE_IMAGE);
+	public static Map<String, String> getCategoriesImages(long groupId) {
+		try {
+			return getElementValuesByCategoryId(groupId, Constants.CATEGORY_STRUCTURE_NAME,
+					Constants.CATEGORY_STRUCTURE_IMAGE);
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+
+		return null;
 	}
 
-	public static Map<String, String> getCategoriesSquareImages(long groupId) throws SystemException, PortalException {
-		return getStructureElementValue(groupId, Constants.CATEGORY_STRUCTURE_SQUAREIMAGE);
+	public static Map<String, String> getCategoriesSquareImages(long groupId) {
+		try {
+			return getElementValuesByCategoryId(groupId, Constants.CATEGORY_STRUCTURE_NAME,
+					Constants.CATEGORY_STRUCTURE_SQUAREIMAGE);
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+
+		return null;
 	}
 
-	private static Map<String, String> getStructureElementValue(long groupId, String structureElement)
-			throws SystemException, PortalException {
+	/* TSC Projects utils */
+	public static Map<String, String> getProjectsImages(long groupId) {
+		try {
+			return getElementValuesByEntryId(groupId, Constants.PROJECT_STRUCTURE_NAME,
+					Constants.PROJECT_STRUCTURE_IMAGE);
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+
+		return null;
+	}
+
+	/* Generic methods and helpers */
+	private static Map<String, String> getElementValuesByCategoryId(long groupId, String structureName,
+			String structureElement) throws SystemException, PortalException {
 		Map<String, String> map = new HashMap<String, String>();
 		AssetEntryQuery entryQuery = new AssetEntryQuery();
 		XPath xpath = SAXReaderUtil.createXPath("dynamic-element[@name='" + structureElement + "']");
 
 		entryQuery.setClassNameIds(new long[] { PortalUtil.getClassNameId(JournalArticle.class) });
-		entryQuery.setClassTypeIds(
-				new long[] { getStructureIdByStructureName(groupId, Constants.CATEGORY_STRUCTURE_NAME) });
+		entryQuery.setClassTypeIds(new long[] { getStructureIdByStructureName(groupId, structureName) });
 		List<AssetEntry> entries = AssetEntryLocalServiceUtil.getEntries(entryQuery);
 
 		if (entries != null && entries.size() > 0) {
@@ -78,6 +113,33 @@ public class CategoriesUtil {
 						e.printStackTrace();
 						continue;
 					}
+				}
+			}
+		}
+		return map;
+	}
+
+	/* Generic methods and helpers */
+	private static Map<String, String> getElementValuesByEntryId(long groupId, String structureName,
+			String structureElement) throws SystemException, PortalException {
+		Map<String, String> map = new HashMap<String, String>();
+		AssetEntryQuery entryQuery = new AssetEntryQuery();
+		XPath xpath = SAXReaderUtil.createXPath("dynamic-element[@name='" + structureElement + "']");
+
+		entryQuery.setClassNameIds(new long[] { PortalUtil.getClassNameId(JournalArticle.class) });
+		entryQuery.setClassTypeIds(new long[] { getStructureIdByStructureName(groupId, structureName) });
+		List<AssetEntry> entries = AssetEntryLocalServiceUtil.getEntries(entryQuery);
+
+		if (entries != null && entries.size() > 0) {
+			for (AssetEntry entry : entries) {
+				JournalArticle article = JournalArticleLocalServiceUtil.getLatestArticle(entry.getClassPK());
+				try {
+					Element el = SAXReaderUtil.read(article.getContent()).getRootElement();
+					String elementString = xpath.selectSingleNode(el).getStringValue();
+					map.put("" + entry.getEntryId(), elementString.trim());
+				} catch (Exception e) {
+					e.printStackTrace();
+					continue;
 				}
 			}
 		}

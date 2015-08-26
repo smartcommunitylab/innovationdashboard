@@ -261,6 +261,7 @@ li.cat-project-preview-container {
 	height: 20em;
 	margin: 0.5em;
 	background-color: #dddddd;
+	background-size: cover;
 }
 
 .cat-project-preview-text {
