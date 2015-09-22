@@ -1,5 +1,6 @@
 <#assign Validator = staticUtil["com.liferay.portal.kernel.util.Validator"] />
-<#assign CU = staticUtil["it.smartcommunitylab.util.CategoriesUtil"] />
+<#assign ACLSU = staticUtil["com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil"] />
+<#assign CU = staticUtil["it.smartcommunitylab.tsc.utils.CategoriesUtil"] />
 <#assign colors = CU.getCategoriesColors(siteGroupId) />
 <#assign colorHex = colors[request.parameters.categoryId] />
 <#assign colorRgba = CU.hex2rgba(colorHex, 0.5) />
@@ -29,8 +30,7 @@
             </#if>
             <li class="project-summary-category">
                 <i class="smart-category"></i>
-                Lorem ipsum dolor sit amet
-                Lorem ipsum dolor sit amet
+                ${ACLSU.getCategory(request.parameters.categoryId?number).getName()}
             </li>
             <#if Validator.isNotNull(project_innovation.getData())>
                 <li class="project-summary-innovation">
@@ -62,58 +62,65 @@
     <div class="span6">
         <h6 class="project-update">Dettagli aggiornati al</h6>
         <h6 class="project-progress-title">Stato di avanzamento</h6>
-        <ul class="project-progress-container">
-            <li class="project-progress-step ${status1}">
+        <div class="row-fluid project-progress-container">
+            <div class="span4 project-progress-step project-progress-step-1 ${status1}">
+                <hr />
                 <div class="project-progress-circle">1</div>
                 <div class="project-progress-circle-text">Approvato e in attesa di avvio</div>
-            </li>
-            <li class="project-progress-step ${status2}">
+            </div>
+            <div class="span4 project-progress-step project-progress-step-2 ${status2}">
+                <hr />
                 <div class="project-progress-circle">2</div>
                 <div class="project-progress-circle-text">Approvato e in sviluppo</div>
-            </li>
-            <li class="project-progress-step ${status3}">
+            </div>
+            <div class="span4 project-progress-step project-progress-step-3 ${status3}">
+                <hr />
                 <div class="project-progress-circle">3</div>
                 <div class="project-progress-circle-text">Completato / Operativo</div>
-            </li>
-        </ul>
-        <table class="project-data-table">
-            <tr>
-                <th style="background-color:${colorRgba}">Destinatari</th>
-                <td>
-                    <div class="project-data" style="background-color:${colorRgba}">
-                        <i class="smart-citizen"></i>
-                        <i class="smart-pa"></i>
-                        <i class="smart-pa-plus"></i>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th style="background-color:${colorRgba}">Scala di intervento</th>
-                <td>
-                    <div class="project-data" style="background-color:${colorRgba}">
-                        <i class="smart-territory-radius"></i>
-                        <i class="smart-territory-radius"></i>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th style="background-color:${colorRgba}">Sostenibilità</th>
-                <td>
-                    <div class="project-data" style="background-color:${colorRgba}">
-                        <i class="smart-territory-radius"></i>
-                        <i class="smart-territory-radius"></i>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th style="background-color:${colorRgba}">Valore complessivo</th>
-                <td>
-                    <div class="project-data" style="background-color:${colorRgba}">
-                        <i class="smart-territory-radius"></i>
-                        <i class="smart-territory-radius"></i>
-                    </div>
-                </td>
-            </tr>
-        </table>
+            </div>
+        </div>
+        <div class="project-data-table-container">
+            <a class="btn btn-link project-data-legenda-button">Legenda</a>
+            <div class="project-data-legenda"></div>
+            <table class="project-data-table">
+                <tr>
+                    <th style="background-color:${colorRgba}">Destinatari</th>
+                    <td>
+                        <div class="project-data" style="background-color:${colorRgba}">
+                            <i class="smart-citizen"></i>
+                            <i class="smart-pa"></i>
+                            <i class="smart-pa-plus"></i>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="background-color:${colorRgba}">Scala di intervento</th>
+                    <td>
+                        <div class="project-data" style="background-color:${colorRgba}">
+                            <i class="smart-territory-radius"></i>
+                            <i class="smart-territory-radius"></i>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="background-color:${colorRgba}">Sostenibilità</th>
+                    <td>
+                        <div class="project-data" style="background-color:${colorRgba}">
+                            <i class="smart-territory-radius"></i>
+                            <i class="smart-territory-radius"></i>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="background-color:${colorRgba}">Valore complessivo</th>
+                    <td>
+                        <div class="project-data" style="background-color:${colorRgba}">
+                            <i class="smart-territory-radius"></i>
+                            <i class="smart-territory-radius"></i>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>

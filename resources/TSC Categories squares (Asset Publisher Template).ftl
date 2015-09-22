@@ -1,5 +1,5 @@
 <#assign portletURL = renderResponse.createRenderURL() />
-<#assign CU = staticUtil["it.smartcommunitylab.util.CategoriesUtil"] />
+<#assign CU = staticUtil["it.smartcommunitylab.tsc.utils.CategoriesUtil"] />
 <#assign colors = CU.getCategoriesColors(themeDisplay.getSiteGroupId()) />
 <#assign images = CU.getCategoriesSquareImages(themeDisplay.getSiteGroupId()) />
 

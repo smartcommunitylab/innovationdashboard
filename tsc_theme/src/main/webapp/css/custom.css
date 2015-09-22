@@ -1,0 +1,526 @@
+@CHARSET "UTF-8";
+
+@import url(smartTorino.css);
+
+@import url(//fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic);
+
+.aui h1,.aui h2,.aui h3,.aui h4,.aui h5,.aui h6 {
+	font-weight: normal;
+}
+
+#wrapper {
+	padding: 0;
+	/* Helvetica Hell... https://css-tricks.com/snippets/css/better-helvetica/ */
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	/* font-family: 'Roboto', sans-serif;
+	font-weight: 300; */
+}
+
+#navigation {
+	background-color: #042350;
+	padding: 1em 1em 0 1em;
+}
+
+#navigation ul {
+	margin: auto;
+	padding: 0;
+}
+
+#navigation ul li {
+	display: inline-block;
+	list-style-type: none;
+	padding: 1em;
+}
+
+#navigation ul li a {
+	color: #ffffff;
+}
+
+#navigation ul li a:hover {
+	color: #ed9600;
+	text-decoration: none;
+}
+
+#navigation .navigation-row {
+	position: relative;
+}
+
+#navigation .navigation-row.right {
+	text-align: right;
+}
+
+#navigation .search {
+	display: inline-block;
+	float: right;
+}
+
+#navigation .search .searchform {
+	padding-right: 0;
+}
+
+#navigation .search .searchtoggle {
+	padding-right: 0;
+}
+
+#navigation .search form input[type="text"] {
+	background-color: transparent;
+	border-color: transparent;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	border-bottom-color: #ffffff;
+}
+
+#navigation .search form,#navigation .search form input[type="text"] {
+	margin: 0;
+}
+
+#navigation .search form select,#navigation .search form input[type="image"] {
+	display: none;
+}
+
+#navigation .menubar {
+	text-transform: uppercase;
+}
+
+#footer-navigation {
+	background-color: #042350;
+	padding: 1em;
+}
+
+#footer-navigation .powered-by {
+	display: inline-block;
+}
+
+#footer-navigation .powered-by a,#footer-navigation .powered-by a:hover {
+	color: white;
+	text-decoration: none;
+}
+
+#footer-navigation #footer-navmenu {
+	float: right;
+}
+
+#footer-navigation #footer-navmenu li a {
+	padding: 0;
+	color: #ffffff;
+	text-shadow: none;
+}
+
+/* Categories display template styles */
+.cats-squares-container {
+	text-align: center;
+}
+
+.cats-squares-container .cats-squares-title {
+	margin: 1em 0;
+	font-family: 'Lato', sans-serif;
+	font-weight: lighter;
+	color: #042350;
+}
+
+ul.cats-squares {
+	display: inline-block;
+	margin: 0;
+}
+
+li.cat-square {
+	display: inline-block;
+	list-style-type: none;
+	padding: 1em;
+	margin: 0.5em;
+	width: 15em;
+	height: 15em;
+	color: #ffffff;
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-color: #eeeeee;
+}
+
+li.cat-square .cat-name {
+	text-transform: uppercase;
+	font-family: 'Lato', sans-serif;
+	font-weight: bold;
+}
+
+.cat-square-economy {
+	background-color: #fcca21;
+	background-image: url(../images/categories/cat_economy.png);
+}
+
+.cat-square-energy {
+	background-color: #93be00;
+	background-image: url(../images/categories/cat_energy.png);
+}
+
+.cat-square-environment {
+	background-color: #a67c52;
+	background-image: url(../images/categories/cat_environment.png);
+}
+
+.cat-square-government {
+	background-color: #662d91;
+	background-image: url(../images/categories/cat_government.png);
+}
+
+.cat-square-living {
+	background-color: #299ee9;
+	background-image: url(../images/categories/cat_living.png);
+}
+
+.cat-square-mobility {
+	background-color: #dc143f;
+	background-image: url(../images/categories/cat_mobility.png);
+}
+
+.cat-square-people {
+	background-color: #ec8b00;
+	background-image: url(../images/categories/cat_people.png);
+}
+
+.cat-square-planning {
+	background-color: #666666;
+	background-image: url(../images/categories/cat_planning.png);
+}
+
+/* Map */
+#map-canvas {
+	width: 100%;
+	height: 40em;
+	margin-top: 2em;
+}
+
+#map-canvas img {
+	max-width: inherit;
+	vertical-align: inherit;
+}
+
+/* Category page */
+.cat-page-container {
+	margin-top: 2em;
+}
+
+h3.cat-page-title {
+	text-transform: uppercase;
+	font-family: 'Lato', sans-serif;
+	font-weight: bold;
+}
+
+.cat-tear {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	width: 10em;
+	height: 10em;
+	line-height: 10em;
+	text-align: center;
+	margin: auto;
+	border: none;
+	-webkit-border-radius: 50% 50% 50% 0/50% 50% 50% 0;
+	border-radius: 50% 50% 50% 0/50% 50% 50% 0;
+	font-family: 'Lato', sans-serif;
+	color: #ffffff;
+	-o-text-overflow: clip;
+	text-overflow: clip;
+	-webkit-transform: rotateZ(-45deg);
+	transform: rotateZ(-45deg);
+	border: none;
+}
+
+.cat-tear i {
+	display: block;
+	line-height: inherit;
+	-webkit-transform: rotateZ(45deg);
+	transform: rotateZ(45deg);
+	font-size: 7em;
+}
+
+.cat-tear img {
+	/* display: block; */
+	text-align: center;
+	-webkit-transform: rotateZ(45deg);
+	transform: rotateZ(45deg);
+	width: 65%;
+	height: 65%;
+}
+
+ul.cat-projects-previews {
+	margin: 0 5em;
+}
+
+ul.cat-projects-previews a,ul.cat-projects-previews a:hover {
+	color: inherit;
+	text-decoration: none;
+}
+
+li.cat-project-preview-container {
+	position: relative;
+	display: inline-block;
+	list-style-type: none;
+	width: 35em;
+	height: 20em;
+	margin: 0.5em;
+	background-color: #dddddd;
+	background-size: cover;
+}
+
+.cat-project-preview-text {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.cat-project-preview-text-container {
+	padding: 1em;
+}
+
+.cat-project-preview-text-container .cat-project-preview-title {
+	margin: 0;
+	font-weight: bold;
+}
+
+.cat-project-preview-text-container .cat-project-preview-desc {
+	margin: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* project page */
+ul.project-summary {
+	margin: 0 0 1em 0;
+	border-left: 0.5em solid #dddddd;
+	font-family: 'Lato', sans-serif;
+}
+
+.project-summary li {
+	list-style-type: none;
+	padding: 0.5em 0 0.5em 0.5em;
+	line-height: 2em;
+}
+
+.project-summary li:last-child {
+	/* padding-bottom: 0.5em; */
+	
+}
+
+.project-summary li i {
+	font-size: 2em;
+	color: #999999;
+}
+
+.project-summary-title {
+	color: #999999;
+	font-style: italic;
+}
+
+.project-description {
+	padding-left: 1em;
+}
+
+h6.project-update {
+	color: #999999;
+	font-style: italic;
+}
+
+.project-progress-title {
+	
+}
+
+.project-progress-container {
+	margin: 0;
+}
+
+.project-progress-step {
+	position: relative;
+	display: inline-block;
+	/*width: 33%;*/
+	margin-left: 0 !important;
+}
+
+.project-progress-step hr {
+	position: absolute;
+	top: 22px;
+	display: block;
+	width: 100%;
+	border-color: #000000;
+	margin: 0;
+	z-index: 1;
+}
+
+.project-progress-step-1 hr {
+	width: 50%;
+	right: 0;
+}
+
+.project-progress-step-3 hr {
+	width: 50%;
+	left: 0;
+}
+
+.project-progress-step div {
+	position: relative;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.project-progress-circle {
+	z-index: 2;
+	width: 1.5em;
+	height: 1.5em;
+	line-height: 1.5em;
+	text-align: center;
+	font-size: 2em;
+	background-color: #dddddd;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	border: 1px solid #000000;
+}
+
+.project-progress-circle-text {
+	font-size: smaller;
+}
+
+.project-progress-step.done .project-progress-circle {
+	color: #ffffff;
+	background-color: #000000;
+}
+
+.project-progress-step.done .project-progress-circle-text {
+	font-weight: bold;
+}
+
+.project-progress-step.done hr {
+	border-width: 3px;
+	top: 20px;
+}
+
+.project-data-table-container {
+	margin-top: 3em;
+	position: relative;
+}
+
+.project-data-table-legenda-button.btn-link {
+	position: relative;
+	display: block;
+	float: right;
+	background-color: #042350 !important;
+	color: #ffffff !important;
+	text-decoration: none !important;
+	text-shadow: none;
+	margin-bottom: 0.5em;
+	z-index: 2;
+}
+
+/* .project-data-table-legenda-button.btn-link:hover */
+.project-data-table-container.visible .project-data-table-legenda-button.btn-link span {
+	/* visibility: hidden; */
+	display: none;
+}
+
+.project-data-table-container.visible .project-data-table-legenda-button.btn-link:after {
+	/* content: "\2716"; */
+	content: "CHIUDI";
+}
+
+.project-data-table-container .project-data-table-legenda {
+	clear: both;
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: white;
+	background-color: #042350;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	padding-top: 37px;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+	opacity: 0;
+}
+
+.project-data-table-container.visible .project-data-table-legenda {
+	opacity: 1;
+}
+
+.project-data-table-container .project-data-table-legenda .project-data-table-legenda-content {
+	height: 100%;
+	overflow: auto;
+	padding: 0 1em;
+}
+
+.project-data-table-container .project-data-table-legenda .project-data-table-legenda-content h5 {
+	font-style: italic;
+	margin-top: 2em;
+}
+
+.project-data-table-container .project-data-table-legenda .project-data-table-legenda-content h5:first-child {
+	margin-top: auto;
+}
+
+.project-data-table-container .project-data-table-legenda .project-data-table-legenda-content ul {
+	margin: 0;
+}
+
+.project-data-table-container .project-data-table-legenda .project-data-table-legenda-content ul li {
+	list-style-type: none;
+	margin: 1em 0;
+}
+
+.project-data-table-container .project-data-table-legenda .project-data-table-legenda-content ul li i {
+	font-size: 3em;
+	vertical-align: middle;
+}
+
+.project-data-table-container .project-data-table-legenda .project-data-table-legenda-content ul li span {
+	vertical-align: middle;
+	margin-left: 1em;
+}
+
+.project-data-table {
+	width: 100%;
+}
+
+.project-data-table tr th {
+	background-color: #dddddd;
+	padding: 0 1em;
+	text-align: right;
+	font-style: italic;
+	font-weight: normal;
+	white-space: nowrap;
+}
+
+.project-data-table tr td {
+	width: 100%;
+	padding: 0;
+	border: none;
+}
+
+.project-data-table tr td .project-data {
+	background-color: #dddddd;
+	margin: 0.1em 0 0.1em 0.2em;
+	padding: 0.2em;
+	font-size: 3em;
+}
+
+.project-data-table tr:first-child td .project-data {
+	margin-top: 0;
+}
+
+.project-data-table tr:last-child td .project-data {
+	margin-bottom: 0;
+}
+
+.project-data-table td {
+	/* border-style: solid;
+	border-color: #ffffff;
+	border-top: 0.5em;
+	border-bottom: 0.5em;
+	border-left: 0.5em; */
+	
+}
