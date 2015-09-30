@@ -308,6 +308,7 @@ ul.project-summary {
 .project-summary li i {
 	font-size: 2em;
 	color: #999999;
+	vertical-align: middle;
 }
 
 .project-summary-title {
@@ -436,16 +437,18 @@ h6.project-update {
 	width: 100%;
 	height: 100%;
 	padding-top: 37px;
-	-webkit-transition: all 0.5s ease-in-out;
+	/* -webkit-transition: all 0.5s ease-in-out;
 	-moz-transition: all 0.5s ease-in-out;
 	-ms-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
 	transition: all 0.5s ease-in-out;
-	opacity: 0;
+	opacity: 0; */
+	display: none;
 }
 
 .project-data-table-container.visible .project-data-table-legenda {
-	opacity: 1;
+	/* opacity: 1; */
+	display: block;
 }
 
 .project-data-table-container .project-data-table-legenda .project-data-table-legenda-content {
@@ -522,5 +525,17 @@ h6.project-update {
 	border-top: 0.5em;
 	border-bottom: 0.5em;
 	border-left: 0.5em; */
-	
+}
+
+.portlet-page-comments .portlet-title {
+	font-size: smaller;
+	text-transform: uppercase;
+}
+
+.portlet-page-comments .portlet-body {
+	background-color: #F8F9FA;
+}
+
+.portlet-page-comments .portlet-body .lfr-discussion {
+	border-bottom-color: #000000;
 }

@@ -1,7 +1,13 @@
 <#assign liferay_ui = PortalJspTagLibs["/WEB-INF/tld/liferay-ui.tld"] />
 <#assign aui = PortalJspTagLibs["/WEB-INF/tld/liferay-aui.tld"] />
 
-<#assign AssetVocabularyLocalServiceUtil = staticUtil["com.liferay.portlet.asset.service.AssetVocabularyLocalServiceUtil"] /> 
+<#assign AssetVocabularyLocalServiceUtil = staticUtil["com.liferay.portlet.asset.service.AssetVocabularyLocalServiceUtil"] />
+<#assign AssetCategoryLocalServiceUtil = staticUtil["com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil"] />
+<#assign categories = AssetCategoryLocalServiceUtil.getCategories() />
+<#assign groupId = themeDisplay.getLayout().getGroupId() />
+
+<#assign PortletURLFactoryUtil = staticUtil["com.liferay.portlet.PortletURLFactoryUtil"] />
+<#assign LayoutLocalServiceUtil = staticUtil["com.liferay.portal.service.LayoutLocalServiceUtil"] />
 
 <nav class="${nav_css_class}" id="navigation" role="navigation">
 	<div class="navigation-row">
@@ -51,6 +57,21 @@
 							</ul>
 						</#if>
 					</li>
+					
+					<#assign categoryLayout = LayoutLocalServiceUtil.getFriendlyURLLayout(groupId, false, "/category") >
+					<#list categories as category>
+						<#assign categoryId = stringUtil.valueOf(category.getCategoryId()) />
+						<#assign categoryPlid = categoryLayout.getPlid() /> 
+						<#assign categoryURL = portletURLFactory.create(request, "101", categoryPlid, "RENDER_PHASE") />
+						${categoryURL.setParameter("resetCur", "true")}
+						${categoryURL.setParameter("categoryId", categoryId)}
+						${categoryURL.setPortletMode("VIEW")}
+						${categoryURL.setWindowState("NORMAL")}
+						
+						<li ${nav_item_attr_selected} class="${nav_item_css_class}" id="layout_${nav_item.getLayoutId()}" role="presentation">
+							<a href="${categoryURL.toString()}" role="menuitem"><span>${category.getName()}</span></a>
+						</li>
+					</#list>
 				</#if>
 			</#list>
 		</ul>
