@@ -1,7 +1,7 @@
 <#assign portletURL = renderResponse.createRenderURL() />
-<#assign CU = staticUtil["it.smartcommunitylab.tsc.utils.CategoriesUtil"] />
-<#assign colors = CU.getCategoriesColors(themeDisplay.getSiteGroupId()) />
-<#assign images = CU.getCategoriesSquareImages(themeDisplay.getSiteGroupId()) />
+<#assign TSCU = staticUtil["it.smartcommunitylab.tsc.utils.TscUtil"] />
+<#assign colors = TSCU.getStructureFieldValues(themeDisplay.getSiteGroupId(), "TSC Category structure", "color", true) />
+<#assign images = TSCU.getStructureFieldValues(themeDisplay.getSiteGroupId(), "TSC Category structure", "squareimage", true) />
 
 <div class="cats-squares-container">
     <h1 class="cats-squares-title">Torino diventa intelligente. Torino diventa SMART.</h1>

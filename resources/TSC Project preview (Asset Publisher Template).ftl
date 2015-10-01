@@ -1,15 +1,15 @@
 <#assign portletURL = renderResponse.createRenderURL() />
 <#assign Validator = staticUtil["com.liferay.portal.kernel.util.Validator"] />
-<#assign CU = staticUtil["it.smartcommunitylab.tsc.utils.CategoriesUtil"] />
-<#assign colors = CU.getCategoriesColors(siteGroupId) />
-<#assign images = CU.getProjectsImages(siteGroupId) />
+<#assign TSCU = staticUtil["it.smartcommunitylab.tsc.utils.TscUtil"] />
+<#assign colors = TSCU.getStructureFieldValues(siteGroupId, "TSC Category structure", "color", true) />
+<#assign images = TSCU.getStructureFieldValues(siteGroupId, "TSC Project structure", "image", false) />
 
 <#if entries?has_content>
     <ul class="cat-projects-previews">
     	<#list entries as curEntry>
     	    <#assign categoryId = stringUtil.valueOf(curEntry.getCategoryIds()[0]) />
     	    <#assign colorHex = colors[categoryId] />
-            <#assign colorRgba = CU.hex2rgba(colorHex, 0.7) />
+            <#assign colorRgba = TSCU.hex2rgba(colorHex, 0.7) />
             <#assign image = images[stringUtil.valueOf(entry.getEntryId())] />
     	    ${portletURL.setParameter("resetCur", "true")}
             ${portletURL.setParameter("categoryId", categoryId)}
