@@ -234,7 +234,7 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 											%>
 											
 											<div class="rating-stats">
-												<span><%= score %></span><i class="smart-like-selected"></i>
+												<span><%= score %></span> <i class="smart-like-selected"></i>
 											</div>
 										</c:if>
 

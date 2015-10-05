@@ -559,9 +559,16 @@ h6.project-update {
 	margin-bottom: 5px;
 }
 
-.portlet-page-comments .lfr-discussion-body .rating-actions .rating-label,
-.portlet-page-comments .lfr-discussion-body .rating-actions .rating-thumb-down {
+.portlet-page-comments .lfr-discussion-body .rating-actions .rating-label {
 	display: none;
+}
+
+.portlet-page-comments .lfr-discussion-body .rating-actions .icon-thumbs-up:before {
+	content: none !important;
+}
+
+.portlet-page-comments .lfr-discussion-body .rating-actions .rating-thumb-down {
+	/* display: none; */
 }
 
 .portlet-page-comments .lfr-discussion .lfr-discussion-actions {
