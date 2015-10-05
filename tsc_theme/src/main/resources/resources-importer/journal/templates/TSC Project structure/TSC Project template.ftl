@@ -1,9 +1,9 @@
 <#assign Validator = staticUtil["com.liferay.portal.kernel.util.Validator"] />
 <#assign ACLSU = staticUtil["com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil"] />
-<#assign CU = staticUtil["it.smartcommunitylab.tsc.util.CategoriesUtil"] />
-<#assign colors = CU.getCategoriesColors(siteGroupId) />
+<#assign TSCU = staticUtil["it.smartcommunitylab.tsc.utils.TscUtil"] />
+<#assign colors = TSCU.getStructureFieldValues(siteGroupId, "TSC Category structure", "color", true) />
 <#assign colorHex = colors[request.parameters.categoryId] />
-<#assign colorRgba = CU.hex2rgba(colorHex, 0.5) />
+<#assign colorRgba = TSCU.hex2rgba(colorHex, 0.5) />
 <#assign status1 = getterUtil.getBoolean(status_approved_waiting.getData())?string('done', '') />
 <#assign status2 = getterUtil.getBoolean(status_approved_doing.getData())?string('done', '') />
 <#assign status3 = getterUtil.getBoolean(status_completed.getData())?string('done', '') />
@@ -80,13 +80,124 @@
             </div>
         </div>
         <div class="project-data-table-container">
-            <a class="btn btn-link project-data-legenda-button">Legenda</a>
-            <div class="project-data-legenda"></div>
+            <a class="btn btn-link project-data-table-legenda-button"><span>Legenda</span></a>
+            <div class="project-data-table-legenda">
+                <div class="project-data-table-legenda-content">
+                    <h5>Destinatari</h5>
+                    <ul>
+                        <li>
+                            <i class="smart-citizen"></i>
+                            <span>Cittadini: si intende la popolazione residente</span>
+                        </li>
+                        <li>
+                            <i class="smart-city-user"></i>
+                            <span>City user: si intende chi frequenta la città - in cui non è residente - per lavoro, per usufruire di servizi, per fare acquisti, per turismo ecc.</span>
+                        </li>
+                        <li>
+                            <i class="smart-pa"></i>
+                            <span>Struttura comunale</span>
+                        </li>
+                        <li>
+                            <i class="smart-pa-plus"></i>
+                            <span>Altre pubbliche amministrazioni</span>
+                        </li>
+                        <li>
+                            <i class="smart-company"></i>
+                            <span>Imprese</span>
+                        </li>
+                        <li>
+                            <i class="smart-non-profit"></i>
+                            <span>Organizzazioni terzo settore</span>
+                        </li>
+                    </ul>
+                    <h5>Sostenibilità</h5>
+                    <ul>
+                        <li>
+                            <i class="smart-social"></i>
+                            <span>Sociale</span>
+                        </li>
+                        <li>
+                            <i class="smart-environment"></i>
+                            <span>Ambientale</span>
+                        </li>
+                        <li>
+                            <i class="smart-economy"></i>
+                            <span>Economica</span>
+                        </li>
+                    </ul>
+                    <h5>Scala geografica</h5>
+                    <ul>
+                        <li>
+                            <i class="smart-territory-radius"></i>
+                            <span>Quartiere</span>
+                        </li>
+                        <li>
+                            <i class="smart-territory-radius"></i>
+                            <i class="smart-territory-radius"></i>
+                            <span>Città</span>
+                        </li>
+                        <li>
+                            <i class="smart-territory-radius"></i>
+                            <i class="smart-territory-radius"></i>
+                            <i class="smart-territory-radius"></i>
+                            <span>Area metropolitana</span>
+                        </li>
+                        <li>
+                            <i class="smart-territory-radius"></i>
+                            <i class="smart-territory-radius"></i>
+                            <i class="smart-territory-radius"></i>
+                            <i class="smart-territory-radius"></i>
+                            <span>Regione / Italia</span>
+                        </li>
+                    </ul>
+                    <h5>Valore complessivo</h5>
+                    <ul>
+                        <li>
+                            <i class="smart-price"></i>
+                            <span>< 100K</span>
+                        </li>
+                        <li>
+                            <i class="smart-price"></i>
+                            <i class="smart-price"></i>
+                            <span>100K - 500K</span>
+                        </li>
+                        <li>
+                            <i class="smart-price"></i>
+                            <i class="smart-price"></i>
+                            <i class="smart-price"></i>
+                            <span>500K - 1M</span>
+                        </li>
+                        <li>
+                            <i class="smart-price"></i>
+                            <i class="smart-price"></i>
+                            <i class="smart-price"></i>
+                            <i class="smart-price"></i>
+                            <span>1M - 5M</span>
+                        </li>
+                        <li>
+                            <i class="smart-price"></i>
+                            <i class="smart-price"></i>
+                            <i class="smart-price"></i>
+                            <i class="smart-price"></i>
+                            <i class="smart-price"></i>
+                            <span>> 5M</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <table class="project-data-table">
                 <tr>
                     <th style="background-color:${colorRgba}">Destinatari</th>
                     <td>
                         <div class="project-data" style="background-color:${colorRgba}">
+                            <#--
+                            <#assign siblings = destinatari.getSiblings() />
+                            <ul>
+                            <#list siblings as sibling>
+                                <li>${sibling.getData()}</li>
+                            </#list>
+                            </ul>
+                            -->
                             <i class="smart-citizen"></i>
                             <i class="smart-pa"></i>
                             <i class="smart-pa-plus"></i>

@@ -28,10 +28,10 @@
 					<!-- <autoDeployDir>${liferay.auto.deploy.dir}</autoDeployDir> <appServerDeployDir>${liferay.app.server.deploy.dir}</appServerDeployDir> 
 						<appServerLibGlobalDir>${liferay.app.server.lib.global.dir}</appServerLibGlobalDir> 
 						<appServerPortalDir>${liferay.app.server.portal.dir}</appServerPortalDir> -->
-					<autoDeployDir>/home/oscar/development/liferay/deploy</autoDeployDir>
-					<appServerDeployDir>/home/oscar/development/liferay/tomcat-7.0.42/webapps</appServerDeployDir>
-					<appServerLibGlobalDir>/home/oscar/development/liferay/tomcat-7.0.42/lib/ext</appServerLibGlobalDir>
-					<appServerPortalDir>/home/oscar/development/liferay/tomcat-7.0.42/webapps/ROOT</appServerPortalDir>
+					<autoDeployDir>/home/oscar/development/liferay-torino/deploy</autoDeployDir>
+					<appServerDeployDir>/home/oscar/development/liferay-torino/tomcat-7.0.42/webapps</appServerDeployDir>
+					<appServerLibGlobalDir>/home/oscar/development/liferay-torino/tomcat-7.0.42/lib/ext</appServerLibGlobalDir>
+					<appServerPortalDir>/home/oscar/development/liferay-torino/tomcat-7.0.42/webapps/ROOT</appServerPortalDir>
 					<liferayVersion>${liferay.version}</liferayVersion>
 					<parentTheme>${liferay.theme.parent}</parentTheme>
 					<pluginType>theme</pluginType>

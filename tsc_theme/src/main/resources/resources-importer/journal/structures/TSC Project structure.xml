@@ -1,4 +1,3 @@
-
 <root available-locales="it_IT,en_US" default-locale="it_IT">
 	<dynamic-element dataType="boolean" indexType="keyword" localizable="true" name="status_approved_waiting" readOnly="false" repeatable="false" required="false" showLabel="true" type="checkbox" width="">
 		<meta-data locale="it_IT">
@@ -255,6 +254,30 @@
 		<meta-data locale="en_US">
 			<entry name="label">
 				<![CDATA[Image]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="destinatari" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
+		<meta-data locale="it_IT">
+			<entry name="label">
+				<![CDATA[destinatari]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[destinatari]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
