@@ -5,6 +5,7 @@ import java.util.List;
 public class ArticleData {
 
 	private String content;
+	private String description;
 	private long[] categoriesIds;
 	private List<String> subcategories;
 
@@ -14,6 +15,14 @@ public class ArticleData {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public long[] getCategoriesIds() {

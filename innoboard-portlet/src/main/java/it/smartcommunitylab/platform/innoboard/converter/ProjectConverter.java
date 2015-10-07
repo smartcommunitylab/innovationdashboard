@@ -99,6 +99,7 @@ public class ProjectConverter {
 		ad.setContent(content);
 		ad.setCategoriesIds(buildCategories(project));
 		ad.setSubcategories(buildSubcategories(project));
+		ad.setDescription(project.getAbstractProgetto());
 		
 		return ad;
 	}

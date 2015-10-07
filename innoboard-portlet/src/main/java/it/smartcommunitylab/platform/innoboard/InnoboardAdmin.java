@@ -12,6 +12,7 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.TreeMap;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -101,14 +102,23 @@ public class InnoboardAdmin extends MVCPortlet {
 			if (saved.containsKey(title)) {
 				JournalArticle article = saved.get(title);
 				serviceContext.setAssetCategoryIds(contents.get(title).getCategoriesIds());
-				JournalArticleLocalServiceUtil.updateArticle(userId, groupId, 0, article.getArticleId(), article.getVersion(), contents.get(title).getContent(), serviceContext);
+				System.out.println("Updating: " + title);
+				
+				JournalArticle newArticle = JournalArticleLocalServiceUtil.updateArticleTranslation(groupId, article.getArticleId(), article.getVersion(), Locale.US, article.getTitle(Locale.US), article.getDescription(Locale.US), contents.get(title).getContent(), new TreeMap<String, byte[]>(), serviceContext);
+				JournalArticleLocalServiceUtil.updateArticleTranslation(groupId, article.getArticleId(), newArticle.getVersion(), Locale.ITALY, article.getTitle(Locale.ITALY), article.getDescription(Locale.ITALY), contents.get(title).getContent(), new TreeMap<String, byte[]>(), serviceContext);
 			} else {
-				Map<Locale, String> map = Maps.newHashMap();
-				map.put(Locale.US, title);
-				map.put(Locale.ITALY, title);
+				Map<Locale, String> titleMap = Maps.newHashMap();
+				titleMap.put(Locale.US, title);
+				titleMap.put(Locale.ITALY, title);
+				
+				Map<Locale, String> descriptionMap = Maps.newHashMap();
+				descriptionMap.put(Locale.US, contents.get(title).getDescription());
+				descriptionMap.put(Locale.ITALY, contents.get(title).getDescription());				
+				
 				serviceContext.setAssetCategoryIds(contents.get(title).getCategoriesIds());
 //				serviceContext.setAssetTagNames(contents.get(title).getSubcategories().toArray(new String[0]));
-				JournalArticle added = JournalArticleLocalServiceUtil.addArticle(userId, groupId, 0, map, map, contents.get(title).getContent(), sk, tk, serviceContext);
+				System.out.println("Creating: " + title);
+				JournalArticle added = JournalArticleLocalServiceUtil.addArticle(userId, groupId, 0, titleMap, descriptionMap, contents.get(title).getContent(), sk, tk, serviceContext);
 			}
 
 		}
