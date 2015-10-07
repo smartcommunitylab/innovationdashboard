@@ -182,22 +182,28 @@ public class XLSConverter {
 						Method method = clazz.getMethod("get" + WordUtils.capitalize(ambito));
 						Map map = (Map) method.invoke(projects[i]);
 
+						String name = values.getName();
+						
 						if (X.equals(values.getValues().get(i))) {
-							List<String> old = (List<String>) map.get(values.getName());
+							if (ambito.contains("Primario") && map.keySet().size() == 1 && !map.containsKey(name)) {
+								continue;
+							}							
+							
+							List<String> old = (List<String>) map.get(name);
 							if (old == null) {
 								old = Lists.newArrayList();
 							}
-							map.put(values.getName(), old);
+							map.put(name, old);
 						}
 
 						for (RowValues child : values.getChildren()) {
 							if (X.equals(child.getValues().get(i))) {
-								List<String> old = (List<String>) map.get(values.getName());
+								List<String> old = (List<String>) map.get(name);
 								if (old == null) {
 									old = Lists.newArrayList();
 								}
 								old.add(extractType(child.getName()));
-								map.put(values.getName(), old);
+								map.put(name, old);
 							}
 						}
 					}
