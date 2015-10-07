@@ -41,7 +41,7 @@ public class ProjectConverter {
 		
 		categoriesIds = Maps.newTreeMap();
 		for (AssetCategory cat: AssetCategoryLocalServiceUtil.getCategories()) {
-			categoriesIds.put(cat.getName(), cat.getCategoryId());
+			categoriesIds.put(cat.getName().toLowerCase(), cat.getCategoryId());
 		}
 	}	
 	
@@ -112,13 +112,13 @@ public class ProjectConverter {
 	private long[] buildCategories(Project project) {
 		Set<Long> catSet = Sets.newHashSet();
 		for (String key: project.getAmbitoPrimario().keySet()) {
-			if (categoriesIds.containsKey(key)) {
-				catSet.add(categoriesIds.get(key));
+			if (categoriesIds.containsKey(key.toLowerCase())) {
+				catSet.add(categoriesIds.get(key.toLowerCase()));
 			}
 		}
 		for (String key: project.getAmbitoSecondario().keySet()) {
-			if (categoriesIds.containsKey(key)) {
-				catSet.add(categoriesIds.get(key));
+			if (categoriesIds.containsKey(key.toLowerCase())) {
+				catSet.add(categoriesIds.get(key.toLowerCase()));
 			}
 		}		
 		
