@@ -6,7 +6,6 @@ import java.util.Map;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
-import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 public class Project {
@@ -27,18 +26,18 @@ public class Project {
 	private String sostenibilitaEconomica;
 	private String sostenibilitaAmbientale;
 
-	private List<String> tipologia;
-	private List<String> destinatari;
-	private List<String> tipoInnovazione;
+	private Map<String, String> tipologia;
+	private Map<String, String> destinatari;
+	private Map<String, String> tipoInnovazione;
 
 	private Map<String, List<String>> ambitoPrimario;
 	private Map<String, List<String>> ambitoSecondario;
 	private Map<String, String> finanziamentoPubblico;
 
 	public Project() {
-		tipologia = Lists.newArrayList();
-		destinatari = Lists.newArrayList();
-		tipoInnovazione = Lists.newArrayList();
+		tipologia = Maps.newTreeMap();
+		destinatari = Maps.newTreeMap();
+		tipoInnovazione = Maps.newTreeMap();
 		ambitoPrimario = Maps.newTreeMap();
 		ambitoSecondario = Maps.newTreeMap();
 		finanziamentoPubblico = Maps.newTreeMap();
@@ -164,27 +163,27 @@ public class Project {
 		this.sostenibilitaAmbientale = sostenibilitaAmbientale;
 	}
 
-	public List<String> getTipologia() {
+	public Map<String, String> getTipologia() {
 		return tipologia;
 	}
 
-	public void setTipologia(List<String> tipologia) {
+	public void setTipologia(Map<String, String> tipologia) {
 		this.tipologia = tipologia;
 	}
 
-	public List<String> getDestinatari() {
+	public Map<String, String> getDestinatari() {
 		return destinatari;
 	}
 
-	public void setDestinatari(List<String> destinatari) {
+	public void setDestinatari(Map<String, String> destinatari) {
 		this.destinatari = destinatari;
 	}
 
-	public List<String> getTipoInnovazione() {
+	public Map<String, String> getTipoInnovazione() {
 		return tipoInnovazione;
 	}
 
-	public void setTipoInnovazione(List<String> tipoInnovazione) {
+	public void setTipoInnovazione(Map<String, String> tipoInnovazione) {
 		this.tipoInnovazione = tipoInnovazione;
 	}
 

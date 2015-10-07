@@ -168,10 +168,10 @@ public class XLSConverter {
 			if (sub != null) {
 				for (int i = 0; i < values.getValues().size(); i++) {
 					Method method = clazz.getMethod("get" + WordUtils.capitalize(sub));
-					List list = (List) method.invoke(projects[i]);
-					if (X.equals(values.getValues().get(i))) {
-						list.add(extractType(values.getName()));
-					}
+					Map map = (Map) method.invoke(projects[i]);
+					if (!values.getValues().get(i).isEmpty()) {
+						map.put(extractType(values.getName()), (X.equals(values.getValues().get(i))?"":values.getValues().get(i)));
+					}						
 				}
 			}
 
@@ -232,4 +232,5 @@ public class XLSConverter {
 		return result;
 	}
 
+	
 }
