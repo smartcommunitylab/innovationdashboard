@@ -83,26 +83,39 @@
     	                	<span>${value}</span>
     	                </#list>
     	            </li>
-    	            <li>
-    	            	<#assign ambitoSecondarioJson = ambitoSecondario.getData()?eval />
-    	            	<#list ambitoSecondarioJson?keys as k>
-    	            		<span>${k}: </span>
-    	            		<#list ambitoSecondarioJson[k] as sub>
-    	            			<span>${sub}</span>
-    	            		</#list>
-    	            	</#list>
-    	            </li>
+                    <#assign ambitoSecondarioJson = ambitoSecondario.getData()?eval />
+    	            <#list ambitoSecondarioJson?keys as k>
+    	                <li>
+    	                    <#assign asText = k />
+    	                    <#if (ambitoSecondarioJson[k]?size > 0)>
+    	                        <#assign asText = asText + ': ' />
+    	                    </#if>
+        	                <span>${asText}</span>
+        	                <#assign subText = '' />
+        	           	    <#list ambitoSecondarioJson[k] as sub>
+        	           	        <#assign subText = subText + sub />
+        	           		    <#if sub != ambitoSecondarioJson[k]?last>
+        	           		        <#assign subText = subText + ', ' />
+        	           		    </#if>
+        	           		</#list>
+        	           		<span>${subText}</span>
+    	            	</li>
+    	            </#list>
 	            </ul>
             </li>
             <#if Validator.isNotNull(tipoInnovazione.getData())>
                 <li class="project-summary-innovation">
                     <i class="smart-innovation"></i>
                     <#assign tipoInnovazioneJson = tipoInnovazione.getData()?eval />
-                    <#list tipoInnovazioneJson?keys as k>
-                    	<span>${k}: </span>
-                    	<#assign subs = tipoInnovazioneJson[k] />
-                    	<span>${subs}</span>
+                    <#assign tipoInnovazioneKeys = tipoInnovazioneJson?keys />
+                    <#assign tipoInnovazioneText = '' />
+                    <#list tipoInnovazioneKeys as k>
+                    	<#assign tipoInnovazioneText = tipoInnovazioneText + k />
+                    	<#if k != tipoInnovazioneKeys?last>
+                    	    <#assign tipoInnovazioneText = tipoInnovazioneText + ', ' />
+                    	</#if>
                     </#list>
+                    ${tipoInnovazioneText}
                 </li>
             </#if>
             <#if Validator.isNotNull(finanziamentoPubblico.getData())>
@@ -119,7 +132,7 @@
                 <#assign link = link.getData()?trim />
                 <li class="project-summary-website">
                     <i class="smart-website"></i>
-                    <a href="${link.getData()}">${link.getData()}</a>
+                    <a href="${link}">${link}</a>
                 </li>
             </#if>
             <#--
@@ -133,8 +146,10 @@
         </ul>
         <div class="project-description">
             <div>${abstractProgetto.getData()}</div>
-            <h5 class="title">Obiettivi:</h5>
-            <div>${obiettivi.getData()}</div>
+            <#if Validator.isNotNull(obiettivi.getData()?trim)>
+                <h5 class="title">Obiettivi:</h5>
+                <div>${obiettivi.getData()?trim}</div>
+            </#if>
             <#--
             <h4 class="title">Leggi tutto:</h4>
             <div>${fasi.getData()}</div>

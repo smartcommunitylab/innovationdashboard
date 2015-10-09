@@ -3,6 +3,7 @@
 <#assign colors = TSCU.getStructureFieldValues(siteGroupId, "TSC Category structure", "color", true) />
 <#assign images = TSCU.getStructureFieldValues(siteGroupId, "TSC Project structure", "image", false) />
 <#assign ambitiPrimari = TSCU.getStructureFieldValues(siteGroupId, "TSC Project structure", "ambitoPrimario", false) />
+<#assign abstractProgetti = TSCU.getStructureFieldValues(siteGroupId, "TSC Project structure", "abstractProgetto", false) />
 
 <#if entries?has_content>
     <ul class="cat-projects-previews">
@@ -12,11 +13,11 @@
     	    <#assign ambitoPrimarioJson = ambitiPrimari[entryId]?eval />
             <#assign ambitoPrimarioJsonKeys = ambitoPrimarioJson?keys />
             <#assign ambitoPrimarioName = ambitoPrimarioJsonKeys[0] />
-            <#assign categoryId = TSCU.getCategoryIdByName(ambitoPrimarioName) />
+            <#assign categoryId = stringUtil.valueOf(TSCU.getCategoryIdByName(ambitoPrimarioName)) />
             
             <#assign colorHex = "#DDDDDD" />
-            <#if Validator.isNotNull(colors[stringUtil.valueOf(categoryId)]) >
-    	        <#assign colorHex = colors[stringUtil.valueOf(categoryId)] />
+            <#if Validator.isNotNull(colors[categoryId]) >
+    	        <#assign colorHex = colors[categoryId] />
     	    </#if>
     	    
             <#assign colorRgba = TSCU.hex2rgba(colorHex, 0.7) />
@@ -32,7 +33,8 @@
         	        <div class="cat-project-preview-text" style="background-color:${colorRgba}">
         	            <div class="cat-project-preview-text-container">
             		    <h4 class="cat-project-preview-title">${curEntry.getTitle(locale)}</h4>
-            		    <p class="cat-project-preview-desc">${viewURL}</p>
+            		    <#assign abstractProgetto = abstractProgetti[entryId] />
+            		    <p class="cat-project-preview-desc">${abstractProgetto}</p>
             		    </div>
                     </div>
         		</li>

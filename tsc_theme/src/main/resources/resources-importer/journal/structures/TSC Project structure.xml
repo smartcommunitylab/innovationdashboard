@@ -1,80 +1,8 @@
 <root available-locales="it_IT,en_US" default-locale="it_IT">
-	<dynamic-element dataType="boolean" indexType="keyword" localizable="true" name="status_approved_waiting" readOnly="false" repeatable="false" required="false" showLabel="true" type="checkbox" width="">
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="comune" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
 		<meta-data locale="it_IT">
 			<entry name="label">
-				<![CDATA[status_approved_waiting]]>
-			</entry>
-			<entry name="predefinedValue">
-				<![CDATA[false]]>
-			</entry>
-			<entry name="tip">
-				<![CDATA[]]>
-			</entry>
-		</meta-data>
-		<meta-data locale="en_US">
-			<entry name="label">
-				<![CDATA[status_approved_waiting]]>
-			</entry>
-			<entry name="predefinedValue">
-				<![CDATA[false]]>
-			</entry>
-			<entry name="tip">
-				<![CDATA[]]>
-			</entry>
-		</meta-data>
-	</dynamic-element>
-	<dynamic-element dataType="boolean" indexType="keyword" localizable="true" name="status_approved_doing" readOnly="false" repeatable="false" required="false" showLabel="true" type="checkbox" width="">
-		<meta-data locale="it_IT">
-			<entry name="label">
-				<![CDATA[status_approved_doing]]>
-			</entry>
-			<entry name="predefinedValue">
-				<![CDATA[false]]>
-			</entry>
-			<entry name="tip">
-				<![CDATA[]]>
-			</entry>
-		</meta-data>
-		<meta-data locale="en_US">
-			<entry name="label">
-				<![CDATA[status_approved_doing]]>
-			</entry>
-			<entry name="predefinedValue">
-				<![CDATA[false]]>
-			</entry>
-			<entry name="tip">
-				<![CDATA[]]>
-			</entry>
-		</meta-data>
-	</dynamic-element>
-	<dynamic-element dataType="boolean" indexType="keyword" localizable="true" name="status_completed" readOnly="false" repeatable="false" required="false" showLabel="true" type="checkbox" width="">
-		<meta-data locale="it_IT">
-			<entry name="label">
-				<![CDATA[status_completed]]>
-			</entry>
-			<entry name="predefinedValue">
-				<![CDATA[false]]>
-			</entry>
-			<entry name="tip">
-				<![CDATA[]]>
-			</entry>
-		</meta-data>
-		<meta-data locale="en_US">
-			<entry name="label">
-				<![CDATA[status_completed]]>
-			</entry>
-			<entry name="predefinedValue">
-				<![CDATA[false]]>
-			</entry>
-			<entry name="tip">
-				<![CDATA[]]>
-			</entry>
-		</meta-data>
-	</dynamic-element>
-	<dynamic-element dataType="html" fieldNamespace="ddm" indexType="keyword" localizable="true" name="description" readOnly="false" repeatable="false" required="true" showLabel="true" type="ddm-text-html" width="small">
-		<meta-data locale="it_IT">
-			<entry name="label">
-				<![CDATA[HTML]]>
+				<![CDATA[comune]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -85,7 +13,7 @@
 		</meta-data>
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[HTML]]>
+				<![CDATA[comune]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -95,10 +23,10 @@
 			</entry>
 		</meta-data>
 	</dynamic-element>
-	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="project_where" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="titolo" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
 		<meta-data locale="it_IT">
 			<entry name="label">
-				<![CDATA[project_where]]>
+				<![CDATA[titolo]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -109,7 +37,7 @@
 		</meta-data>
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[project_where]]>
+				<![CDATA[titolo]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -119,10 +47,10 @@
 			</entry>
 		</meta-data>
 	</dynamic-element>
-	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="project_what" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="obiettivi" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
 		<meta-data locale="it_IT">
 			<entry name="label">
-				<![CDATA[project_what]]>
+				<![CDATA[obiettivi]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -133,7 +61,7 @@
 		</meta-data>
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[project_what]]>
+				<![CDATA[obiettivi]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -143,10 +71,10 @@
 			</entry>
 		</meta-data>
 	</dynamic-element>
-	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="project_innovation" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="fasi" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
 		<meta-data locale="it_IT">
 			<entry name="label">
-				<![CDATA[project_innovation]]>
+				<![CDATA[fasi]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -157,7 +85,7 @@
 		</meta-data>
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[project_innovation]]>
+				<![CDATA[fasi]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -167,10 +95,10 @@
 			</entry>
 		</meta-data>
 	</dynamic-element>
-	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="project_financing" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="link" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
 		<meta-data locale="it_IT">
 			<entry name="label">
-				<![CDATA[project_financing]]>
+				<![CDATA[link]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -181,7 +109,7 @@
 		</meta-data>
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[project_financing]]>
+				<![CDATA[link]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -191,10 +119,10 @@
 			</entry>
 		</meta-data>
 	</dynamic-element>
-	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="project_website" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="dataAvvio" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
 		<meta-data locale="it_IT">
 			<entry name="label">
-				<![CDATA[project_website]]>
+				<![CDATA[dataAvvio]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -205,7 +133,7 @@
 		</meta-data>
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[project_website]]>
+				<![CDATA[dataAvvio]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -215,10 +143,10 @@
 			</entry>
 		</meta-data>
 	</dynamic-element>
-	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="project_masterplan" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="tipologia" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
 		<meta-data locale="it_IT">
 			<entry name="label">
-				<![CDATA[project_masterplan]]>
+				<![CDATA[tipologia]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -229,7 +157,343 @@
 		</meta-data>
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[project_masterplan]]>
+				<![CDATA[tipologia]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="descrizione" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+		<meta-data locale="it_IT">
+			<entry name="label">
+				<![CDATA[descrizione]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[descrizione]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="paroleChiave" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+		<meta-data locale="it_IT">
+			<entry name="label">
+				<![CDATA[paroleChiave]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[paroleChiave]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="abstractProgetto" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+		<meta-data locale="it_IT">
+			<entry name="label">
+				<![CDATA[abstractProgetto]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[abstractProgetto]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="valoreComplessivo" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+		<meta-data locale="it_IT">
+			<entry name="label">
+				<![CDATA[valoreComplessivo]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[valoreComplessivo]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="scalaGeografica" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+		<meta-data locale="it_IT">
+			<entry name="label">
+				<![CDATA[scalaGeografica]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[scalaGeografica]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="statoAvanzamento" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+		<meta-data locale="it_IT">
+			<entry name="label">
+				<![CDATA[statoAvanzamento]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[statoAvanzamento]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="sostenibilitaSociale" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+		<meta-data locale="it_IT">
+			<entry name="label">
+				<![CDATA[sostenibilitaSociale]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[sostenibilitaSociale]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="sostenibilitaEconomica" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+		<meta-data locale="it_IT">
+			<entry name="label">
+				<![CDATA[sostenibilitaEconomica]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[sostenibilitaEconomica]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="sostenibilitaAmbientale" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+		<meta-data locale="it_IT">
+			<entry name="label">
+				<![CDATA[sostenibilitaAmbientale]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[sostenibilitaAmbientale]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="destinatari" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+		<meta-data locale="it_IT">
+			<entry name="label">
+				<![CDATA[destinatari]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[destinatari]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="tipoInnovazione" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+		<meta-data locale="it_IT">
+			<entry name="label">
+				<![CDATA[tipoInnovazione]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[tipoInnovazione]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="ambitoPrimario" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+		<meta-data locale="it_IT">
+			<entry name="label">
+				<![CDATA[ambitoPrimario]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[ambitoPrimario]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="ambitoSecondario" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+		<meta-data locale="it_IT">
+			<entry name="label">
+				<![CDATA[ambitoSecondario]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[ambitoSecondario]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="boolean" indexType="keyword" localizable="true" name="finanziamentoPubblico" readOnly="false" repeatable="false" required="false" showLabel="true" type="text" width="small">
+		<meta-data locale="it_IT">
+			<entry name="label">
+				<![CDATA[finanziamentoPubblico]]>
+			</entry>
+			<entry name="predefinedValue">
+				<![CDATA[]]>
+			</entry>
+			<entry name="tip">
+				<![CDATA[]]>
+			</entry>
+		</meta-data>
+		<meta-data locale="en_US">
+			<entry name="label">
+				<![CDATA[finanziamentoPubblico]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -262,11 +526,11 @@
 				<![CDATA[]]>
 			</entry>
 		</meta-data>
-	</dynamic-element>
-	<dynamic-element dataType="string" indexType="keyword" localizable="true" name="destinatari" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="small">
+	</dynamic-element>	
+	<dynamic-element dataType="image" fieldNamespace="wcm" indexType="keyword" localizable="true" name="media" readOnly="false" repeatable="true" required="false" showLabel="true" type="wcm-image" width="">
 		<meta-data locale="it_IT">
 			<entry name="label">
-				<![CDATA[destinatari]]>
+				<![CDATA[Media]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -277,7 +541,7 @@
 		</meta-data>
 		<meta-data locale="en_US">
 			<entry name="label">
-				<![CDATA[destinatari]]>
+				<![CDATA[Media]]>
 			</entry>
 			<entry name="predefinedValue">
 				<![CDATA[]]>
@@ -286,5 +550,5 @@
 				<![CDATA[]]>
 			</entry>
 		</meta-data>
-	</dynamic-element>
+	</dynamic-element>	
 </root>
