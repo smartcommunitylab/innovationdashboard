@@ -9,7 +9,9 @@ import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
 import com.liferay.portal.kernel.xml.XPath;
 import com.liferay.portal.util.PortalUtil;
+import com.liferay.portlet.asset.model.AssetCategory;
 import com.liferay.portlet.asset.model.AssetEntry;
+import com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil;
 import com.liferay.portlet.asset.service.AssetEntryLocalServiceUtil;
 import com.liferay.portlet.asset.service.persistence.AssetEntryQuery;
 import com.liferay.portlet.dynamicdatamapping.model.DDMStructure;
@@ -43,6 +45,20 @@ public class TscUtil {
 		return s;
 	}
 
+	public static long getCategoryIdByName(String categoryName) {
+		try {
+			for (AssetCategory cat : AssetCategoryLocalServiceUtil.getCategories()) {
+				if (cat.getName().equalsIgnoreCase(categoryName)) {
+					return cat.getCategoryId();
+				}
+			}
+		} catch (SystemException e) {
+			System.err.println(e.getMessage());
+		}
+
+		return 0;
+	}
+
 	public static Map<String, String> getStructureFieldValues(long groupId, String structureName, String structureField,
 			boolean ambitiOnly) {
 		try {
@@ -57,7 +73,7 @@ public class TscUtil {
 			if (entries != null && entries.size() > 0) {
 				for (AssetEntry entry : entries) {
 					String key = "" + entry.getEntryId();
-					
+
 					if (ambitiOnly) {
 						if (entry.getCategoryIds() == null || entry.getCategoryIds().length == 0) {
 							continue;
