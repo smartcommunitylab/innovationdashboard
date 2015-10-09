@@ -117,6 +117,10 @@
 	text-shadow: none;
 }
 
+.portlet-asset-publisher .taglib-header {
+	display: none;
+}
+
 /* Categories display template styles */
 .cats-squares-container {
 	text-align: center;
@@ -319,6 +323,7 @@ ul.project-summary {
 	font-size: 2em;
 	color: #999999;
 	vertical-align: middle;
+	margin-right: 0.2em;
 }
 
 .project-summary-title {
@@ -326,8 +331,26 @@ ul.project-summary {
 	font-style: italic;
 }
 
+.project-summary-category i {
+	display: inline-block;
+	vertical-align: top !important;
+}
+
+.project-summary-category ul {
+	display: inline-block;
+	margin: 0;
+}
+
+.project-summary-category ul li {
+	padding: 0;
+}
+
 .project-description {
 	padding-left: 1em;
+}
+
+.project-description .title {
+	text-transform: uppercase;
 }
 
 h6.project-update {
@@ -538,44 +561,49 @@ h6.project-update {
 	
 }
 
-.portlet-page-comments .portlet-title {
+.taglib-discussion .portlet-title {
 	font-size: smaller;
 	text-transform: uppercase;
 }
 
-.portlet-page-comments .portlet-body {
+.taglib-discussion .portlet-body {
 	background-color: #F8F9FA;
 }
 
-.portlet-page-comments .lfr-discussion {
+.taglib-discussion .lfr-discussion {
 	border-bottom-color: #000000;
 }
 
-.portlet-page-comments .fieldset.add-comment {
+.taglib-discussion .fieldset.add-comment {
 	text-align: center;
 }
 
-.portlet-page-comments .btn-tsc-add-comment {
+.taglib-discussion .btn-tsc-add-comment {
 	margin-bottom: 5px;
 }
 
-.portlet-page-comments .lfr-discussion-body .rating-actions .rating-label {
-	display: none;
-}
-
-.portlet-page-comments .lfr-discussion-body .rating-actions .icon-thumbs-up:before {
-	content: none !important;
-}
-
-.portlet-page-comments .lfr-discussion-body .rating-actions .rating-thumb-down {
-	/* display: none; */
-}
-
-.portlet-page-comments .lfr-discussion .lfr-discussion-actions {
+.taglib-discussion .lfr-discussion .lfr-discussion-actions li {
 	margin-right: 1em;
 }
 
-.portlet-page-comments .lfr-discussion .lfr-discussion-actions li a {
+.taglib-discussion .lfr-discussion span.rating-label {
+	display: none;
+}
+
+.taglib-discussion .lfr-discussion a.rating-element {
+	padding: 4px 12px;
+	line-height: 20px !important;
+}
+
+.taglib-discussion .lfr-discussion a.rating-element.icon-thumbs-up:before {
+	content: none !important;
+}
+
+.taglib-discussion .lfr-discussion-body a.rating-element.rating-thumb-down {
+	display: none;
+}
+
+.taglib-discussion .lfr-discussion .lfr-discussion-actions li a {
 	clip: rect(auto, auto, auto, auto) !important;
     position: static !important;
 }

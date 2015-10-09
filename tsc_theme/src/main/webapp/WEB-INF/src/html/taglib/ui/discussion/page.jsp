@@ -230,7 +230,8 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 											<%
 											RatingsEntry ratingsEntry = getRatingsEntry(ratingsEntries, message.getMessageId());
 											RatingsStats ratingStats = getRatingsStats(ratingsStatsList, message.getMessageId());
-											int score = (int) ratingStats.getTotalScore(); 
+											// int score = (int) ratingStats.getTotalScore();
+											int score = (int) ratingStats.getAverageScore();
 											%>
 											
 											<div class="rating-stats">
@@ -240,6 +241,24 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 
 										<c:if test="<%= !hideControls && !TrashUtil.isInTrash(message.getClassName(), message.getClassPK()) %>">
 											<ul class="lfr-discussion-actions">
+												<c:if test="<%= ratingsEnabled && !TrashUtil.isInTrash(message.getClassName(), message.getClassPK()) %>">
+		
+													<%
+													RatingsEntry ratingsEntry = getRatingsEntry(ratingsEntries, message.getMessageId());
+													RatingsStats ratingStats = getRatingsStats(ratingsStatsList, message.getMessageId());
+													%>
+		
+													<li>
+														<liferay-ui:ratings
+															className="<%= MBDiscussion.class.getName() %>"
+															classPK="<%= message.getMessageId() %>"
+															ratingsEntry="<%= ratingsEntry %>"
+															ratingsStats="<%= ratingStats %>"
+															type="thumbs"
+														/>
+													</li>
+												</c:if>
+												
 												<c:if test="<%= MBDiscussionPermission.contains(permissionChecker, company.getCompanyId(), scopeGroupId, permissionClassName, permissionClassPK, userId, ActionKeys.ADD_DISCUSSION) %>">
 													<li class="lfr-discussion-reply-to">
 
@@ -306,24 +325,6 @@ Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(locale, timeZo
 												</c:if>
 												--%>
 											</ul>
-										</c:if>
-										
-										<c:if test="<%= ratingsEnabled && !TrashUtil.isInTrash(message.getClassName(), message.getClassPK()) %>">
-
-											<%
-											RatingsEntry ratingsEntry = getRatingsEntry(ratingsEntries, message.getMessageId());
-											RatingsStats ratingStats = getRatingsStats(ratingsStatsList, message.getMessageId());
-											%>
-
-											<div class="lfr-discussion-actions rating-actions">
-												<liferay-ui:ratings
-													className="<%= MBDiscussion.class.getName() %>"
-													classPK="<%= message.getMessageId() %>"
-													ratingsEntry="<%= ratingsEntry %>"
-													ratingsStats="<%= ratingStats %>"
-													type="thumbs"
-												/>
-											</div>
 										</c:if>
 									</div>
 								</aui:col>
