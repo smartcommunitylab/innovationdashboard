@@ -31,7 +31,4 @@ Liferay.on('allPortletsReady',
  * page.
  */
 function() {
-	$('.project-data-table-legenda-button').click(function() {
-		$('.project-data-table-container').toggleClass('visible');
-	});
 });

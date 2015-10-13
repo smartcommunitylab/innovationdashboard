@@ -143,9 +143,7 @@ if (ratingsEntry != null) {
 											<a class="rating-element rating-<%= (yourScore > 0) ? "on" : "off" %> rating-thumb-up icon-thumbs-up" href="javascript:;"></a>
 											--%>
 											
-											<a class="rating-element rating-<%= (yourScore > 0) ? "on" : "off" %> rating-thumb-up icon-thumbs-up btn btn-tsc" href="javascript:;">
-												<i class="smart-like-selected"></i>
-											</a>
+											<a class="rating-element rating-<%= (yourScore > 0) ? "on" : "off" %> rating-thumb-up icon-thumbs-up btn" href="javascript:;"></a>
 											
 											<a class="rating-element rating-<%= (yourScore < 0) ? "on" : "off" %> rating-thumb-down icon-thumbs-down" href="javascript:;"></a>
 											

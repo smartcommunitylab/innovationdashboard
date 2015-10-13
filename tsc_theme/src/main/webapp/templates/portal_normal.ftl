@@ -8,8 +8,10 @@
 	<title>${the_title} - ${company_name}</title>
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
 	${theme.include(top_head_include)}
-	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="${javascript_folder}/../jquery/lightslider/css/lightslider.min.css" />
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="${javascript_folder}/../jquery/lightslider/js/lightslider.min.js"></script>
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyBUBfn7RPyHlOmogiMls736E3lhi786fEM"></script>
 </head>
 

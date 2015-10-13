@@ -405,3 +405,30 @@
         </div>
     </div>
 </div>
+
+<#if (Validator.isNotNull(media) && (media.getSiblings()?size > 0) && (Validator.isNotNull(media.getSiblings()[0].getData())))>
+    <#assign mediaList = media.getSiblings() />
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="project-media">
+                <h4>Contenuti media</h4>
+                <ul id="project-media-gallery">
+                    <#list mediaList as m>
+                        <li>
+                            <img src="${m.getData()}" />
+                        </li>
+                    </#list>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        $("#project-media-gallery").lightSlider({
+            pager: false,
+            adaptiveHeight: true,
+            prevHtml: '<i class="icon-chevron-left"></i>',
+            nextHtml: '<i class="icon-chevron-right"></i>'
+        });
+    </script>
+</#if>
