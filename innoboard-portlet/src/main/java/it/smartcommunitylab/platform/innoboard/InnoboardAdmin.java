@@ -105,6 +105,7 @@ public class InnoboardAdmin extends MVCPortlet {
 				System.out.println("Updating: " + title);
 				
 				JournalArticle newArticle = JournalArticleLocalServiceUtil.updateArticleTranslation(groupId, article.getArticleId(), article.getVersion(), Locale.US, article.getTitle(Locale.US), article.getDescription(Locale.US), contents.get(title).getContent(), new TreeMap<String, byte[]>(), serviceContext);
+				JournalArticleLocalServiceUtil.addArticleResources(newArticle, true, true);
 				JournalArticleLocalServiceUtil.updateArticleTranslation(groupId, article.getArticleId(), newArticle.getVersion(), Locale.ITALY, article.getTitle(Locale.ITALY), article.getDescription(Locale.ITALY), contents.get(title).getContent(), new TreeMap<String, byte[]>(), serviceContext);
 				JournalArticleLocalServiceUtil.addArticleResources(newArticle, true, true);
 			} else {
