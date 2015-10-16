@@ -14,6 +14,45 @@
 		<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
 			<img alt="${logo_description}" height="${site_logo_height}" src="${site_logo}" width="${site_logo_width}" />
 		</a>
+	
+		<ul class="nav-user">
+			<#if !is_signed_in>
+				<#assign anchorData = {"redirect", portalUtil.isLoginRedirectRequired(request)} />
+				<@aui["nav-item"] anchorData=anchorData cssClass="sign-in" anchorCssClass="use-dialog" title="Accedi" href="${themeDisplay.getURLSignIn()}" label="Accedi" />
+			<#else>
+				<#--
+				<#assign id = themeDisplay.getPortletDisplay().getId() />
+				<#assign plid = themeDisplay.getPlid() />
+				<#assign profileURL = portletURLFactory.create(request, "tsc", plid, "ACTION_PHASE") />
+				${profileURL.setParameter("groupId", "" + themeDisplay.getUser().getGroupId())}
+				${profileURL.setPortletMode("VIEW")}
+				${profileURL.setWindowState("MAXIMIZED")}
+				-->
+			
+				<#--
+				<@liferay_util["buffer"] var="userprofile">
+					<span class="user-full-name">${user.getFullName()}</span>
+					<img class="user-avatar-image" src="${user.getPortraitURL(themeDisplay)}" />
+				</@>
+				-->
+
+				<@aui["nav-item"] cssClass="user-avatar" dropdown=false id="userAvatar" label="${user.getFullName()}">
+					<#--
+					<li class="my-sites-menu public-site">
+						<a href="${profileURL.toString()}">
+							<span class="site-name"><@liferay_ui["message"] key="my-profile" /></span> 
+						</a>
+					</li>
+					-->
+					
+					<#if themeDisplay.isShowSignOutIcon()>
+						<@aui["nav-item"] cssClass="sign-out" href="${themeDisplay.getURLSignOut()}" label="sign-out" />
+						<#-- iconCssClass="icon-off" -->
+					</#if>
+				</@>
+			</#if>
+		</ul>
+		
 		<ul class="search">			
 			<#-- <@liferay_ui["toggle"] defaultShowContent=false id="searchform" /> -->
 			<li class="searchform">
@@ -22,6 +61,7 @@
 			<@aui["nav-item"] href="#" cssClass="searchtoggle" iconCssClass="icon-search" />
 		</ul>
 	</div>
+	
 	<div class="navigation-row">
 		<ul id="navmenu" class="menubar" aria-label="<@liferay.language key="site-pages" />" role="menubar">
 			<#list nav_items as nav_item>

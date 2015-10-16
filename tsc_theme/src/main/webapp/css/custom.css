@@ -89,6 +89,11 @@
 	display: none;
 }
 
+#navigation .nav-user {
+	display: inline-block;
+	float: right;
+}
+
 #navigation .menubar {
 	text-transform: uppercase;
 }
@@ -574,7 +579,7 @@ h6.project-update {
 	max-height: 400px;
 }
 
-.project-media .lSAction a, .project-media .lSAction a:hover {
+.project-media .lSAction a,.project-media .lSAction a:hover {
 	background-image: none;
 	background: #042350;
 	-webkit-border-radius: 50%;
@@ -586,14 +591,18 @@ h6.project-update {
 
 .project-media .lSAction a i {
 	display: block;
-    text-align: center;
-    line-height: 32px;
+	text-align: center;
+	line-height: 32px;
 }
 
 /* RATINGS */
 a.rating-element.rating-thumb-up.icon-thumbs-up:before {
 	font-family: "smartTorino";
 	content: "\e600" !important;
+}
+
+.tsc-ratings {
+	margin-top: 1em;
 }
 
 .asset-ratings {
@@ -604,6 +613,15 @@ a.rating-element.rating-thumb-up.icon-thumbs-up:before {
 
 .asset-ratings .rating-label-tsc {
 	font-weight: bold;
+}
+
+.asset-ratings .rating-label-tsc.after {
+	margin-left: 2em;
+}
+
+.asset-ratings .rating-label-tsc-score {
+	font-size: 2em;
+	margin-left: 1em;
 }
 
 .asset-ratings .taglib-ratings {
@@ -701,4 +719,41 @@ a.rating-element.rating-thumb-up.icon-thumbs-up:before {
 .taglib-discussion .lfr-discussion-actions li a {
 	clip: rect(auto, auto, auto, auto) !important;
 	position: static !important;
+}
+
+/* Login */
+.portlet-login .portlet-title {
+	display: none;
+}
+
+.portlet-login .control-group label,.sign-in-form .control-group label {
+	display: none;
+}
+
+.portlet-login .control-group input,.sign-in-form .control-group input {
+	border: 0;
+	border-bottom: 1px solid #000;
+	border-radius: 0;
+	box-shadow: none !important;
+	transition: none;
+}
+
+.portlet-login .control-group input::-webkit-input-placeholder,.sign-in-form .control-group input::-webkit-input-placeholder {
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.portlet-login .control-group input:-moz-placeholder,.sign-in-form .control-group input:-moz-placeholder {
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.portlet-login .control-group input::-moz-placeholderd,.sign-in-form .control-group input::-moz-placeholderd {
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.portlet-login .control-group input:-ms-input-placeholder,.sign-in-form .control-group input:-ms-input-placeholder {
+	text-transform: uppercase;
+	font-size: 12px;
 }

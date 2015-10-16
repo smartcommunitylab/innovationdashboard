@@ -284,31 +284,31 @@
                     <ul>
                         <li>
                             <i class="smart-price"></i>
-                            <span>< 100K</span>
+                            <span>minore di € 100.000</span>
                         </li>
                         <li>
                             <#list 1..2 as v>
                         		<i class="smart-price"></i>
                         	</#list>
-                            <span>100K - 500K</span>
+                            <span>tra € 100.000 e € 500.000</span>
                         </li>
                         <li>
                             <#list 1..3 as v>
                         		<i class="smart-price"></i>
                         	</#list>
-                            <span>500K - 1M</span>
+                            <span>tra € 500.000 e € 1.000.000</span>
                         </li>
                         <li>
                             <#list 1..4 as v>
                         		<i class="smart-price"></i>
                         	</#list>
-                            <span>1M - 5M</span>
+                            <span>tra € 1.000.000 e € 5.000.000</span>
                         </li>
                         <li>
                             <#list 1..5 as v>
                         		<i class="smart-price"></i>
                         	</#list>
-                            <span>> 5M</span>
+                            <span>più di € 5.000.000</span>
                         </li>
                     </ul>
                 </div>
