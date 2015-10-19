@@ -222,11 +222,11 @@
 								<span class="rating-label-tsc">Ti piace il progetto?</span>
 							</c:when>
 						</c:choose>
-						<c:if test="<%=score > 0%>">
+						<c:if test="<%=score >= 0%>">
 							<span class="rating-label-tsc-score"><%=score%></span>
-							<liferay-ui:ratings className="<%=assetEntry.getClassName()%>"
-									classPK="<%=assetEntry.getClassPK()%>" type="<%=ratingsType%>" />
 						</c:if>
+						<liferay-ui:ratings className="<%=assetEntry.getClassName()%>"
+									classPK="<%=assetEntry.getClassPK()%>" type="<%=ratingsType%>" />
 						<c:choose>
 							<c:when test="<%=!(themeDisplay.isSignedIn())%>">
 								<span class="sign-in rating-label-tsc after"><a href="<%=themeDisplay.getURLSignIn()%>">Entra</a> per esprimere il tuo gradimento</span>
@@ -256,15 +256,14 @@
 			</div>
 		</c:if>
 
-		<br />
-
 		<c:if test="<%=enableRelatedAssets%>">
 			<liferay-ui:asset-links assetEntryId="<%=assetEntry.getEntryId()%>" />
 		</c:if>
 
 		<c:if
 			test="<%=Validator.isNotNull(assetRenderer.getDiscussionPath()) && enableComments%>">
-			<br />
+			
+			<h3 class="project-discussion-title">Discussione</h3>
 
 			<portlet:actionURL var="discussionURL">
 				<portlet:param name="struts_action"

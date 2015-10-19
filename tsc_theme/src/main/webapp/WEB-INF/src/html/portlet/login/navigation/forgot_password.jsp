@@ -19,23 +19,27 @@
 <%
 	String strutsAction = ParamUtil.getString(request, "struts_action");
 
-	boolean showCreateAccountIcon = false;
+	boolean showForgotPasswordIcon = false;
 
-	// if (!strutsAction.equals("/login/create_account") && company.isStrangers() && !portletName.equals(PortletKeys.FAST_LOGIN)) {
-	showCreateAccountIcon = true;
-	// }
+	if (!strutsAction.equals("/login/forgot_password")
+			&& (company.isSendPassword() || company.isSendPasswordResetLink())) {
+		showForgotPasswordIcon = true;
+	}
 %>
 
-<c:if test="<%=showCreateAccountIcon%>">
+<c:if test="<%=showForgotPasswordIcon%>">
+	<portlet:renderURL var="forgotPasswordURL">
+		<portlet:param name="struts_action" value="/login/forgot_password" />
+	</portlet:renderURL>
+
 	<%--
 	<liferay-ui:icon
-		image="add_user"
-		message="create-account"
-		url="<%= PortalUtil.getCreateAccountURL(request, themeDisplay) %>"
+		image="help"
+		message="forgot-password"
+		url="<%= forgotPasswordURL %>"
 	/>
 	--%>
-	<a class="btn btn-tsc"
-		href="<%=PortalUtil.getCreateAccountURL(request, themeDisplay)%>">
-		<liferay-ui:message key="create-account" />
+	<a class="btn btn-tsc" href="<%=forgotPasswordURL%>"> <liferay-ui:message
+			key="forgot-password" />
 	</a>
 </c:if>

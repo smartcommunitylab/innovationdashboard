@@ -56,7 +56,7 @@
 		<ul class="search">			
 			<#-- <@liferay_ui["toggle"] defaultShowContent=false id="searchform" /> -->
 			<li class="searchform">
-				<@liferay_ui["search"] placeholder="Search project" />
+				<@liferay_ui["search"] />
 			</li>
 			<@aui["nav-item"] href="#" cssClass="searchtoggle" iconCssClass="icon-search" />
 		</ul>

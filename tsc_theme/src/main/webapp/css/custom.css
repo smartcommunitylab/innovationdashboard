@@ -143,6 +143,14 @@ ul.cats-squares {
 	margin: 0;
 }
 
+ul.cats-squares a, ul.cats-squares a:hover {
+	text-decoration: none !important;
+}
+
+ul.cats-squares:hover {
+	text-decoration: none !important;
+}
+
 li.cat-square {
 	display: inline-block;
 	list-style-type: none;
@@ -283,23 +291,23 @@ li.cat-project-preview-container {
 	background-size: cover;
 }
 
-.cat-project-preview-text {
+.cat-project-preview-bottom {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+}
+
+.cat-project-preview-bottom-text {
+	padding: 1em;
 	background-color: rgba(255, 255, 255, 0.5);
 }
 
-.cat-project-preview-text-container {
-	padding: 1em;
-}
-
-.cat-project-preview-text-container .cat-project-preview-title {
+.cat-project-preview-bottom-text .cat-project-preview-title {
 	margin: 0;
 	font-weight: bold;
 }
 
-.cat-project-preview-text-container .cat-project-preview-desc {
+.cat-project-preview-bottom-text .cat-project-preview-desc {
 	margin: 0;
 	white-space: nowrap;
 	overflow: hidden;
@@ -595,6 +603,11 @@ h6.project-update {
 	line-height: 32px;
 }
 
+.project-discussion-title {
+	text-transform: uppercase;
+	margin-top: 1em !important;
+}
+
 /* RATINGS */
 a.rating-element.rating-thumb-up.icon-thumbs-up:before {
 	font-family: "smartTorino";
@@ -666,6 +679,11 @@ a.rating-element.rating-thumb-up.icon-thumbs-up:before {
 
 .asset-ratings .taglib-ratings a.rating-element.rating-thumb-down {
 	display: none;
+}
+
+.taglib-discussion {
+	padding: 1em;
+	background-color: #F8F9FA;
 }
 
 .taglib-discussion .portlet-title {
