@@ -1,14 +1,12 @@
 package it.smartcommunitylab.platform.innoboard.converter;
 
-import it.smartcommunitylab.platform.innoboard.converter.model.Project;
-import it.smartcommunitylab.platform.innoboard.converter.model.RowValues;
-
 import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.WordUtils;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.util.CellRangeAddress;
@@ -20,6 +18,9 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+
+import it.smartcommunitylab.platform.innoboard.converter.model.Project;
+import it.smartcommunitylab.platform.innoboard.converter.model.RowValues;
 
 public class XLSConverter {
 
