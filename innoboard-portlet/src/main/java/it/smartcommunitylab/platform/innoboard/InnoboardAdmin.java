@@ -35,7 +35,7 @@ import com.liferay.util.bridges.mvc.MVCPortlet;
  */
 public class InnoboardAdmin extends MVCPortlet {
 
-	public static final String PROJECT_STRUCTURE_NAME = "TSC Project structure 2";
+	public static final String PROJECT_STRUCTURE_NAME = "TSC Project structure";
 	public static final String PROJECT_TEMPLATE_NAME = "TSC Project template";
 	
 	public void uploadData(ActionRequest actionRequest, ActionResponse actionResponse) {
@@ -45,7 +45,7 @@ public class InnoboardAdmin extends MVCPortlet {
 		System.err.println("FILE UPLOADED " + file.getName());
 		
 		try {
-//			deleteSavedJournals();
+			// deleteSavedJournals();
 			
 			long groupdId = ServiceContextFactory.getInstance(actionRequest).getScopeGroupId();
 			long userId = ServiceContextFactory.getInstance(actionRequest).getUserId();
