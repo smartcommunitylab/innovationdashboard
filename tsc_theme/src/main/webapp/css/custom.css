@@ -2,7 +2,7 @@
 
 @import url(smartTorino.css);
 
-@import url("//fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic");
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,700,400italic,700italic);
 
 .aui h1,.aui h2,.aui h3,.aui h4,.aui h5,.aui h6 {
 	font-weight: normal;
