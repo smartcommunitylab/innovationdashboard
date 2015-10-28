@@ -1,1 +1,21 @@
 # innovationdashboard
+- Column "content" on table "JournalArticle" needs to have collation "utf8mb4 - default collation"
+- create page "category", hide from menu
+- create page "project", hide from menu
+- configure page "category":
+  - add Asset Publisher:
+    - custom title empty
+    - link to Current page
+    - show borders no
+    - filter by Web Content Article - TSC Category structure
+    - Full Content
+    - Set as the Default Asset Publisher for This Page
+  - add Asset Publisher:
+    - custom title empty
+    - link to page "project"
+    - show borders no
+    - filter by Web Content Article - TSC Project structure
+    - TSC Project preview
+- configure page "project":
+  - edit page, "Copy applications" from page "category"
+  - remove the second Asset Publisher
