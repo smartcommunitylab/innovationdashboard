@@ -26,6 +26,10 @@
 	font-weight: 300; */
 }
 
+#sign-in {
+	display: none;
+}
+
 #navigation {
 	background-color: #042350;
 	padding: 1em 1em 0 1em;
