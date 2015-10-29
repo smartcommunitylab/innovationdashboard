@@ -32,6 +32,9 @@
   - TSC Category structure
   - TSC Project template
   - TSC Project structure
+- create Application Display Templates from the files yiu ca find under github repos' `resources` folder
+  - TSC Categories squares
+  - TSC Project preview
 
 ## tsc-theme and innoboard-portlet installation
 - edit maven settings at `.m2/settings.xml` and add profile (edit for you needs):
@@ -74,28 +77,35 @@ mvn install
 cp target/tsc_utils-0.1.jar ~/liferay/tomcat/webapps/tsc/WEB-INF/lib
 ```
 - restart tomcat
-- remebmerb to change the column _content_ on table _JournalArticle_: it needs to have collation "utf8mb4 - default collation"
+- remember to change the column _content_ on table _JournalArticle_: it needs to have collation "utf8mb4 - default collation"
 
-## Create pages
+## Design
 - create page "category", hide from menu
 - create page "project", hide from menu
-- configure page "category":
-  - add Asset Publisher:
-    - custom title empty
-    - link to Current page
-    - show borders no
-    - filter by Web Content Article - TSC Category structure
-    - Full Content
-    - Set as the Default Asset Publisher for This Page
-  - add Asset Publisher:
-    - custom title empty
-    - link to page "project"
-    - show borders no
-    - filter by Web Content Article - TSC Project structure
-    - TSC Project preview
-- configure page "project":
-  - edit page, "Copy applications" from page "category"
-  - remove the second Asset Publisher
+### _Home_ page
+- add Asset Publisher:
+  - custom title empty
+  - link to page _category_
+  - show borders no
+  - filter by Web Content Article - TSC Category structure
+  - show as TSC Category squares
+### _category_ page
+- add Asset Publisher:
+  - custom title empty
+  - link to Current page
+  - show borders no
+  - filter by Web Content Article - TSC Category structure
+  - show Full Content
+  - Set as the Default Asset Publisher for This Page
+- add Asset Publisher:
+  - custom title empty
+  - link to page _project_
+  - show borders no
+  - filter by Web Content Article - TSC Project structure
+  - show as TSC Project preview
+### _project_ page
+- edit page, "Copy applications" from page "category"
+- remove the second Asset Publisher
 
 ## Contents
 - create categories under a vocabulary
@@ -103,4 +113,3 @@ cp target/tsc_utils-0.1.jar ~/liferay/tomcat/webapps/tsc/WEB-INF/lib
 - use the import utility to import xml file and create some data
 
 ## Design
-...
