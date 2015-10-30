@@ -77,7 +77,7 @@
   cp target/tsc_utils-0.1.jar ~/liferay/tomcat/webapps/tsc/WEB-INF/lib
   ```
 - restart tomcat
-- remember to change the column _content_ on table _JournalArticle_: it needs to have collation "utf8mb4 - default collation"
+- remember to change the column _content_ on table _JournalArticle_: it needs to have collation `utf8mb4 - default collation`
 
 ## Design
 - create page "category", hide from menu
