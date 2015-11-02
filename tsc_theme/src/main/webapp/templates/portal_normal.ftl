@@ -10,6 +10,7 @@
 	${theme.include(top_head_include)}
 	<link type="text/css" rel="stylesheet" href="${javascript_folder}/../jquery/lightslider/css/lightslider.min.css" />
 	<link type="text/css" rel="stylesheet" href="${javascript_folder}/../css/smartTorino.css" />
+	<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,300,300italic,700,400italic,700italic" />
 	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<script type="text/javascript" src="${javascript_folder}/../jquery/lightslider/js/lightslider.min.js"></script>
