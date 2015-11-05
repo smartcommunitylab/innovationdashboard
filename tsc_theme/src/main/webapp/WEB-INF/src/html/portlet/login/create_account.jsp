@@ -190,7 +190,7 @@
 			</aui:input>
 
 			<liferay-ui:custom-attribute className="<%=User.class.getName()%>"
-				classPK="0" editable="<%=true%>" label="<%=true%>" name="cap" />
+				classPK="<%= selUser != null ? selUser.getUserId() : 0 %>" editable="<%=true%>" label="<%=true%>" name="cap" />
 
 			<c:if
 				test="<%=PropsValues.LOGIN_CREATE_ACCOUNT_ALLOW_CUSTOM_PASSWORD%>">
