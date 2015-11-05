@@ -243,7 +243,7 @@
 	</aui:fieldset>
 
 	<aui:button-row>
-		<aui:button type="submit" cssClass="btn btn-tsc" value="Registrati"/>
+		<aui:button type="submit" cssClass="btn btn-tsc" value="Registrati" />
 	</aui:button-row>
 </aui:form>
 

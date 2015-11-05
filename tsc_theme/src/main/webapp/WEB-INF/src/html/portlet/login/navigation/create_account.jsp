@@ -28,12 +28,12 @@
 
 <c:if test="<%=showCreateAccountIcon%>">
 	<%--
-	<liferay-ui:icon
-		image="add_user"
-		message="create-account"
-		url="<%= PortalUtil.getCreateAccountURL(request, themeDisplay) %>"
-	/>
-	--%>
+        <liferay-ui:icon
+                image="add_user"
+                message="create-account"
+                url="<%= PortalUtil.getCreateAccountURL(request, themeDisplay) %>"
+        />
+        --%>
 	<a class="btn btn-tsc"
 		href="<%=PortalUtil.getCreateAccountURL(request, themeDisplay)%>">
 		<liferay-ui:message key="create-account" />
