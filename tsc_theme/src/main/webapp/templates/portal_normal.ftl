@@ -23,7 +23,8 @@
 
 ${theme.include(body_top_include)}
 
-<#if is_signed_in>
+<#-- <#if is_signed_in> -->
+<#if ((permissionChecker.isOmniadmin()) || permissionChecker.isCompanyAdmin(theme_display.getCompanyId()) || permissionChecker.isCommunityAdmin(theme_display.getScopeGroupId()))>
 	<@liferay.dockbar />
 </#if>
 
