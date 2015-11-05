@@ -745,6 +745,7 @@ a.rating-element.rating-thumb-up.icon-thumbs-up:before {
 }
 
 /* Login */
+/*
 .portlet-login .portlet-title {
 	display: none;
 }
@@ -779,4 +780,4 @@ a.rating-element.rating-thumb-up.icon-thumbs-up:before {
 .portlet-login .control-group input:-ms-input-placeholder,.sign-in-form .control-group input:-ms-input-placeholder {
 	text-transform: uppercase;
 	font-size: 12px;
-}
+}*/
