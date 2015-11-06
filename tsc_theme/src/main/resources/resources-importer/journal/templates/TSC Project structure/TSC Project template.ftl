@@ -157,7 +157,7 @@
         </div>
     </div>
     <div class="span6">
-        <h6 class="project-update">Dettagli aggiornati al</h6>
+        <!-- <h6 class="project-update">Dettagli aggiornati al</h6> -->
         <h6 class="project-progress-title">Stato di avanzamento</h6>
         <div class="row-fluid project-progress-container">
             <div class="span4 project-progress-step project-progress-step-1 ${statoAvanzamento1}">
@@ -403,32 +403,43 @@
                 </tr>
             </table>
         </div>
+        <div class="row-fluid">
+            <div class="span6">
+                <a class="btn btn-tsc" href="http://italiansmartcity.it/city_detail.php?city=001272" target="_blank">Maggiori informazioni su italiansmartcity.it</a>
+            </div>
+            <div class="span6"></div>
+        </div>
     </div>
 </div>
 
 <#if (Validator.isNotNull(media) && (media.getSiblings()?size > 0) && (Validator.isNotNull(media.getSiblings()[0].getData())))>
     <#assign mediaList = media.getSiblings() />
-    <div class="row-fluid">
-        <div class="span12">
-            <div class="project-media">
-                <h4>Contenuti media</h4>
-                <ul id="project-media-gallery">
-                    <#list mediaList as m>
-                        <li>
+<#else>
+    <#assign mediaList = ['http://lorempixel.com/600/400/city/', 'http://lorempixel.com/600/400/transport/', 'http://lorempixel.com/600/400/nature/', 'http://lorempixel.com/600/400/business/', 'http://lorempixel.com/600/400/nightlife/', 'http://lorempixel.com/600/400/food/'] />
+</#if>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="project-media">
+            <h4>Contenuti media</h4>
+            <ul id="project-media-gallery">
+                <#list mediaList as m>
+                    <li>
+                        <#if m?is_string>
+                            <img src="${m}" />
+                        <#else>
                             <img src="${m.getData()}" />
-                        </li>
-                    </#list>
-                </ul>
-            </div>
+                        </#if>
+                    </li>
+                </#list>
+            </ul>
         </div>
     </div>
-    
-    <script type="text/javascript">
-        $("#project-media-gallery").lightSlider({
-            pager: false,
-            adaptiveHeight: true,
-            prevHtml: '<i class="icon-chevron-left"></i>',
-            nextHtml: '<i class="icon-chevron-right"></i>'
-        });
-    </script>
-</#if>
+</div>
+<script type="text/javascript">
+    $("#project-media-gallery").lightSlider({
+        pager: false,
+        adaptiveHeight: true,
+        prevHtml: '<i class="icon-chevron-left"></i>',
+        nextHtml: '<i class="icon-chevron-right"></i>'
+    });
+</script>

@@ -25,6 +25,8 @@
             <#assign colorRgba = TSCU.hex2rgba(colorHex, 0.7) />
             <#if Validator.isNotNull(images[entryId])>
                 <#assign image = images[entryId] />
+            <#else>
+                <#assign image = '${javascript_folder}/../images/covers/cover_${ambitoPrimarioName?lower_case}.jpg' />
             </#if>
     	    <a href="${viewURL}">
     	        <#if Validator.isNotNull(image) >
