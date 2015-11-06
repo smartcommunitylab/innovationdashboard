@@ -585,6 +585,7 @@ h6.project-update {
 }
 
 .project-actions .btn {
+	display: block;
     font-size: larger;
 }
 

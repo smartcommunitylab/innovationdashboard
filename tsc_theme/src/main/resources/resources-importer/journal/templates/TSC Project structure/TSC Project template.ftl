@@ -1,3 +1,4 @@
+<#setting locale="it_IT">
 <#assign TSCU = staticUtil["it.smartcommunitylab.tsc.utils.TscUtil"] />
 <#assign Validator = staticUtil["com.liferay.portal.kernel.util.Validator"] />
 <#assign ACLSU = staticUtil["com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil"] />
@@ -331,17 +332,17 @@
                             <#assign dkeys = djson?keys />
                             <#list dkeys as k>
                             	<#if k == 'Struttura comunale'>
-                            		<i class="smart-pa"></i>
+                            		<i class="smart-pa project-tooltip" title="Struttura comunale"></i>
                             	<#elseif k == 'Cittadini'>
-                            		<i class="smart-citizen"></i>
+                            		<i class="smart-citizen project-tooltip" title="Cittadini"></i>
                             	<#elseif k == 'City user'>
-                            		<i class="smart-city-user"></i>
+                            		<i class="smart-city-user project-tooltip" title="City user"></i>
                             	<#elseif k == 'Imprese'>
-                            		<i class="smart-company"></i>
+                            		<i class="smart-company project-tooltip" title="Imprese"</i>
                             	<#elseif k == 'Organizzazioni terzo settore'>
-                            		<i class="smart-non-profit"></i>
+                            		<i class="smart-non-profit project-tooltip" title="Organizzazioni terzo settore"></i>
                             	<#elseif k == 'Altre pubbliche amministrazioni'>
-                            		<i class="smart-pa-plus"></i>
+                            		<i class="smart-pa-plus project-tooltip" title="Altre pubbliche amministrazioni"></i>
                             	<#else>
                             		<i class="smart-other"></i>
                             	</#if>
@@ -353,41 +354,28 @@
                     <th style="background-color:${colorRgba}">Scala di intervento</th>
                     <td>
                         <div class="project-data" style="background-color:${colorRgba}">
-                            <i class="smart-territory-radius"></i>
-                            <i class="smart-territory-radius"></i>
+                            <#list 1..scalaGeograficaIndex as sgi>
+                        		<i class="smart-territory-radius project-tooltip" title="${scalaGeografica.getData()}"></i>
+                        	</#list>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <th style="background-color:${colorRgba}">Sostenibilità sociale</th>
+                    <th style="background-color:${colorRgba}">Sostenibilità</th>
                     <td>
                         <div class="project-data" style="background-color:${colorRgba}">
                             <#assign ssn = getterUtil.getNumber(sostenibilitaSociale.getData()) />
-                        	<#list 1..ssn as s>
-                        		<i class="smart-social"></i>
-                        	</#list>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="background-color:${colorRgba}">Sostenibilità ambientale</th>
-                    <td>
-                        <div class="project-data" style="background-color:${colorRgba}">
                             <#assign san = getterUtil.getNumber(sostenibilitaAmbientale.getData()) />
-                            <#list 1..san as s>
-                            	<i class="smart-environment"></i>
-                        	</#list>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="background-color:${colorRgba}">Sostenibilità economica</th>
-                    <td>
-                        <div class="project-data" style="background-color:${colorRgba}">
                             <#assign sen = getterUtil.getNumber(sostenibilitaEconomica.getData()) />
-                            <#list 1..sen as s>
-                            	<i class="smart-economy"></i>
-                        	</#list>
+                            <#if (ssn > 1)>
+                        		<i class="smart-social project-tooltip" title="Sostenibilità sociale"></i>
+                        	</#if>
+                        	<#if (san > 1)>
+                        		<i class="smart-environment project-tooltip" title="Sostenibilità ambientale"></i>
+                        	</#if>
+                        	<#if (sen > 1)>
+                        		<i class="smart-economy project-tooltip" title="Sostenibilità economica"></i>
+                        	</#if>
                         </div>
                     </td>
                 </tr>
@@ -396,18 +384,20 @@
                     <td>
                         <div class="project-data" style="background-color:${colorRgba}">
                         	<#list 1..valoreComplessivoIndex as vci>
-                        		<i class="smart-price"></i>
+                        		<i class="smart-price project-tooltip" title="${valoreComplessivoNumber?string.currency}"></i>
                         	</#list>
                         </div>
                     </td>
                 </tr>
             </table>
         </div>
-        <div class="row-fluid">
+        <div class="row-fluid project-actions">
             <div class="span6">
                 <a class="btn btn-tsc" href="http://italiansmartcity.it/city_detail.php?city=001272" target="_blank">Maggiori informazioni su italiansmartcity.it</a>
             </div>
-            <div class="span6"></div>
+            <div class="span6">
+                <a class="btn btn-tsc" href="#">Segnala un progetto simile</a>
+            </div>
         </div>
     </div>
 </div>
@@ -441,5 +431,13 @@
         adaptiveHeight: true,
         prevHtml: '<i class="icon-chevron-left"></i>',
         nextHtml: '<i class="icon-chevron-right"></i>'
+    });
+    
+    YUI().ready('aui-tooltip', function(Y) {
+        new Y.TooltipDelegate(
+            {
+                trigger: '.project-tooltip'
+            }
+        );
     });
 </script>
