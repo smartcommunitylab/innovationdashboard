@@ -19,6 +19,12 @@ import javax.portlet.ActionResponse;
 
 import com.google.common.collect.Maps;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
+import com.liferay.portal.model.ResourceConstants;
+import com.liferay.portal.model.Role;
+import com.liferay.portal.model.RoleConstants;
+import com.liferay.portal.security.permission.ActionKeys;
+import com.liferay.portal.service.ResourcePermissionLocalServiceUtil;
+import com.liferay.portal.service.RoleLocalServiceUtil;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.ServiceContextFactory;
 import com.liferay.portal.util.PortalUtil;
@@ -45,7 +51,7 @@ public class InnoboardAdmin extends MVCPortlet {
 		System.err.println("FILE UPLOADED " + file.getName());
 		
 		try {
-//			deleteSavedJournals();
+			deleteSavedJournals();
 			
 			long groupdId = ServiceContextFactory.getInstance(actionRequest).getScopeGroupId();
 			long userId = ServiceContextFactory.getInstance(actionRequest).getUserId();
@@ -95,6 +101,8 @@ public class InnoboardAdmin extends MVCPortlet {
 		String sk = (struct != null)?struct.getStructureKey():null;
 		String tk = (templ != null)?templ.getTemplateKey():null;
 		
+		long companyId = struct.getCompanyId();
+
 		serviceContext.setScopeGroupId(groupId);
 		serviceContext.setUserId(userId);			
 		
@@ -106,6 +114,8 @@ public class InnoboardAdmin extends MVCPortlet {
 				
 				JournalArticle newArticle = JournalArticleLocalServiceUtil.updateArticleTranslation(groupId, article.getArticleId(), article.getVersion(), Locale.US, article.getTitle(Locale.US), article.getDescription(Locale.US), contents.get(title).getContent(), new TreeMap<String, byte[]>(), serviceContext);
 				JournalArticleLocalServiceUtil.addArticleResources(newArticle, true, true);
+				Role role = RoleLocalServiceUtil.getRole(companyId, RoleConstants.USER);
+				ResourcePermissionLocalServiceUtil.addResourcePermission(0L, JournalArticle.class.getName(), ResourceConstants.SCOPE_COMPANY, Long.toString(newArticle.getResourcePrimKey()), role.getRoleId(), ActionKeys.VIEW);
 				JournalArticleLocalServiceUtil.updateArticleTranslation(groupId, article.getArticleId(), newArticle.getVersion(), Locale.ITALY, article.getTitle(Locale.ITALY), article.getDescription(Locale.ITALY), contents.get(title).getContent(), new TreeMap<String, byte[]>(), serviceContext);
 			} else {
 				Map<Locale, String> titleMap = Maps.newHashMap();
@@ -120,6 +130,8 @@ public class InnoboardAdmin extends MVCPortlet {
 //				serviceContext.setAssetTagNames(contents.get(title).getSubcategories().toArray(new String[0]));
 				System.out.println("Creating: " + title);
 				JournalArticle added = JournalArticleLocalServiceUtil.addArticle(userId, groupId, 0, titleMap, descriptionMap, contents.get(title).getContent(), sk, tk, serviceContext);
+				Role role = RoleLocalServiceUtil.getRole(companyId, RoleConstants.USER);
+				ResourcePermissionLocalServiceUtil.addResourcePermission(companyId, JournalArticle.class.getName(), ResourceConstants.SCOPE_COMPANY, Long.toString(added.getResourcePrimKey()), role.getRoleId(), ActionKeys.VIEW);				
 				JournalArticleLocalServiceUtil.addArticleResources(added, true, true);
 			}
 
