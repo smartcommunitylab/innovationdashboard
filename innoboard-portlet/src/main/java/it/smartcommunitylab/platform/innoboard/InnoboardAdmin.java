@@ -51,7 +51,7 @@ public class InnoboardAdmin extends MVCPortlet {
 		System.err.println("FILE UPLOADED " + file.getName());
 		
 		try {
-			// deleteSavedJournals();
+			deleteSavedJournals();
 			
 			long groupdId = ServiceContextFactory.getInstance(actionRequest).getScopeGroupId();
 			long userId = ServiceContextFactory.getInstance(actionRequest).getUserId();
@@ -113,9 +113,8 @@ public class InnoboardAdmin extends MVCPortlet {
 				System.out.println("Updating: " + title);
 				
 				JournalArticle newArticle = JournalArticleLocalServiceUtil.updateArticleTranslation(groupId, article.getArticleId(), article.getVersion(), Locale.US, article.getTitle(Locale.US), article.getDescription(Locale.US), contents.get(title).getContent(), new TreeMap<String, byte[]>(), serviceContext);
-				JournalArticleLocalServiceUtil.addArticleResources(newArticle, true, true);
 				Role role = RoleLocalServiceUtil.getRole(companyId, RoleConstants.USER);
-				ResourcePermissionLocalServiceUtil.addResourcePermission(0L, JournalArticle.class.getName(), ResourceConstants.SCOPE_COMPANY, Long.toString(newArticle.getResourcePrimKey()), role.getRoleId(), ActionKeys.VIEW);
+				ResourcePermissionLocalServiceUtil.addResourcePermission(companyId, JournalArticle.class.getName(), ResourceConstants.SCOPE_COMPANY, Long.toString(newArticle.getResourcePrimKey()), role.getRoleId(), ActionKeys.VIEW);
 				JournalArticleLocalServiceUtil.updateArticleTranslation(groupId, article.getArticleId(), newArticle.getVersion(), Locale.ITALY, article.getTitle(Locale.ITALY), article.getDescription(Locale.ITALY), contents.get(title).getContent(), new TreeMap<String, byte[]>(), serviceContext);
 				JournalArticleLocalServiceUtil.addArticleResources(newArticle, true, true);
 			} else {
