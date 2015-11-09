@@ -9,10 +9,12 @@
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
 	${theme.include(top_head_include)}
 	<link type="text/css" rel="stylesheet" href="${javascript_folder}/../jquery/lightslider/css/lightslider.min.css" />
+	<link type="text/css" rel="stylesheet" href="${javascript_folder}/../css/smartTorino.css" />
+	<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,300,300italic,700,400italic,700italic" />
 	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<script type="text/javascript" src="${javascript_folder}/../jquery/lightslider/js/lightslider.min.js"></script>
-	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyBUBfn7RPyHlOmogiMls736E3lhi786fEM"></script>
+	<!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyBUBfn7RPyHlOmogiMls736E3lhi786fEM"></script> -->
 </head>
 
 <body class="${css_class}">
@@ -21,7 +23,8 @@
 
 ${theme.include(body_top_include)}
 
-<#if is_signed_in>
+<#-- <#if is_signed_in> -->
+<#if ((permissionChecker.isOmniadmin()) || permissionChecker.isCompanyAdmin(theme_display.getCompanyId()) || permissionChecker.isCommunityAdmin(theme_display.getScopeGroupId()))>
 	<@liferay.dockbar />
 </#if>
 

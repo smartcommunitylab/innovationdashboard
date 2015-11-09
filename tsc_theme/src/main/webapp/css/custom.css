@@ -1,8 +1,8 @@
 @CHARSET "UTF-8";
 
-@import url(smartTorino.css);
+/* @import url('smartTorino.css'); */
 
-@import url("//fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic");
+/* @import url('https://fonts.googleapis.com/css?family=Lato:400,300,300italic,700,400italic,700italic'); */
 
 .aui h1,.aui h2,.aui h3,.aui h4,.aui h5,.aui h6 {
 	font-weight: normal;
@@ -21,9 +21,13 @@
 #wrapper {
 	padding: 0;
 	/* Helvetica Hell... https://css-tricks.com/snippets/css/better-helvetica/ */
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 	/* font-family: 'Roboto', sans-serif;
 	font-weight: 300; */
+}
+
+#sign-in {
+	display: none;
 }
 
 #navigation {
@@ -89,6 +93,11 @@
 	display: none;
 }
 
+#navigation .nav-user {
+	display: inline-block;
+	float: right;
+}
+
 #navigation .menubar {
 	text-transform: uppercase;
 }
@@ -136,6 +145,14 @@
 ul.cats-squares {
 	display: inline-block;
 	margin: 0;
+}
+
+ul.cats-squares a, ul.cats-squares a:hover {
+	text-decoration: none !important;
+}
+
+ul.cats-squares:hover {
+	text-decoration: none !important;
 }
 
 li.cat-square {
@@ -278,23 +295,24 @@ li.cat-project-preview-container {
 	background-size: cover;
 }
 
-.cat-project-preview-text {
+.cat-project-preview-bottom {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+	color: #fff;
+}
+
+.cat-project-preview-bottom-text {
+	padding: 1em;
 	background-color: rgba(255, 255, 255, 0.5);
 }
 
-.cat-project-preview-text-container {
-	padding: 1em;
-}
-
-.cat-project-preview-text-container .cat-project-preview-title {
+.cat-project-preview-bottom-text .cat-project-preview-title {
 	margin: 0;
 	font-weight: bold;
 }
 
-.cat-project-preview-text-container .cat-project-preview-desc {
+.cat-project-preview-bottom-text .cat-project-preview-desc {
 	margin: 0;
 	white-space: nowrap;
 	overflow: hidden;
@@ -542,6 +560,7 @@ h6.project-update {
 	margin: 0.1em 0 0.1em 0.2em;
 	padding: 0.2em;
 	font-size: 3em;
+	font-family: 'smartTorino';
 }
 
 .project-data-table tr:first-child td .project-data {
@@ -561,6 +580,15 @@ h6.project-update {
 	
 }
 
+.project-actions {
+    margin-top: 1em;
+}
+
+.project-actions .btn {
+	display: block;
+    font-size: larger;
+}
+
 /* Contenuti media */
 .project-media {
 	margin-top: 2em;
@@ -574,7 +602,7 @@ h6.project-update {
 	max-height: 400px;
 }
 
-.project-media .lSAction a, .project-media .lSAction a:hover {
+.project-media .lSAction a,.project-media .lSAction a:hover {
 	background-image: none;
 	background: #042350;
 	-webkit-border-radius: 50%;
@@ -586,14 +614,23 @@ h6.project-update {
 
 .project-media .lSAction a i {
 	display: block;
-    text-align: center;
-    line-height: 32px;
+	text-align: center;
+	line-height: 32px;
+}
+
+.project-discussion-title {
+	text-transform: uppercase;
+	margin-top: 1em !important;
 }
 
 /* RATINGS */
 a.rating-element.rating-thumb-up.icon-thumbs-up:before {
 	font-family: "smartTorino";
 	content: "\e600" !important;
+}
+
+.tsc-ratings {
+	margin-top: 1em;
 }
 
 .asset-ratings {
@@ -604,6 +641,15 @@ a.rating-element.rating-thumb-up.icon-thumbs-up:before {
 
 .asset-ratings .rating-label-tsc {
 	font-weight: bold;
+}
+
+.asset-ratings .rating-label-tsc.after {
+	margin-left: 2em;
+}
+
+.asset-ratings .rating-label-tsc-score {
+	font-size: 2em;
+	margin-left: 1em;
 }
 
 .asset-ratings .taglib-ratings {
@@ -648,6 +694,11 @@ a.rating-element.rating-thumb-up.icon-thumbs-up:before {
 
 .asset-ratings .taglib-ratings a.rating-element.rating-thumb-down {
 	display: none;
+}
+
+.taglib-discussion {
+	padding: 1em;
+	background-color: #F8F9FA;
 }
 
 .taglib-discussion .portlet-title {
@@ -702,3 +753,42 @@ a.rating-element.rating-thumb-up.icon-thumbs-up:before {
 	clip: rect(auto, auto, auto, auto) !important;
 	position: static !important;
 }
+
+/* Login */
+/*
+.portlet-login .portlet-title {
+	display: none;
+}
+
+.portlet-login .control-group label,.sign-in-form .control-group label {
+	display: none;
+}
+
+.portlet-login .control-group input,.sign-in-form .control-group input {
+	border: 0;
+	border-bottom: 1px solid #000;
+	border-radius: 0;
+	box-shadow: none !important;
+	transition: none;
+}
+
+.portlet-login .control-group input::-webkit-input-placeholder,.sign-in-form .control-group input::-webkit-input-placeholder {
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.portlet-login .control-group input:-moz-placeholder,.sign-in-form .control-group input:-moz-placeholder {
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.portlet-login .control-group input::-moz-placeholderd,.sign-in-form .control-group input::-moz-placeholderd {
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.portlet-login .control-group input:-ms-input-placeholder,.sign-in-form .control-group input:-ms-input-placeholder {
+	text-transform: uppercase;
+	font-size: 12px;
+}
+*/

@@ -14,7 +14,12 @@
  */
 --%>
 
-<%@page import="com.liferay.portlet.journal.model.JournalArticle"%>
+<%@ page import="com.liferay.portlet.journal.model.JournalArticle"%>
+<%@ page
+	import="com.liferay.portlet.ratings.service.RatingsStatsLocalServiceUtil"%>
+<%@ page import="com.liferay.portlet.ratings.model.RatingsStats"%>
+<%@ page
+	import="com.liferay.portlet.ratings.service.persistence.RatingsStatsUtil"%>
 <%@ include file="/html/portlet/asset_publisher/init.jsp"%>
 
 <%
@@ -183,36 +188,54 @@
 		<c:if test="<%=enableFlags%>">
 			<div class="asset-flag">
 				<liferay-ui:flags className="<%=assetEntry.getClassName()%>"
-					classPK="<%=assetEntry.getClassPK()%>"
-					contentTitle="<%=title%>"
+					classPK="<%=assetEntry.getClassPK()%>" contentTitle="<%=title%>"
 					reportedUserId="<%=assetRenderer.getUserId()%>" />
 			</div>
 		</c:if>
 
-		<div class="row-fluid">
+		<div class="row-fluid tsc-ratings">
 			<div class="span6">
 				<c:if test="<%=enableRatings%>">
 					<div class="asset-ratings">
-		
+
 						<%
 							String assetEntryClassName = assetEntry.getClassName();
-		
+
 								String ratingsType = "stars";
-		
 								if (assetEntryClassName.equals(MBDiscussion.class.getName())
 										|| assetEntryClassName.equals(MBMessage.class.getName())
 										|| assetEntryClassName.equals(JournalArticle.class.getName())) {
 									ratingsType = "thumbs";
 								}
+
+								List<Long> classPKs = new ArrayList<Long>();
+								classPKs.add(assetEntry.getClassPK());
+								List<RatingsStats> ratingsStatsList = RatingsStatsLocalServiceUtil
+										.getStats(JournalArticle.class.getName(), classPKs);
+								RatingsStats ratingStats = getRatingsStats(ratingsStatsList, assetEntry.getClassPK());
+								// int score = (int) ratingStats.getTotalScore();
+								int score = (int) ratingStats.getAverageScore();
 						%>
-						
-						<span class="rating-label-tsc">Ti piace il progetto?</span>		
+
+						<c:choose>
+							<c:when test="<%=themeDisplay.isSignedIn()%>">
+								<span class="rating-label-tsc">Ti piace il progetto?</span>
+							</c:when>
+						</c:choose>
+						<c:if test="<%=score >= 0%>">
+							<span class="rating-label-tsc-score"><%=score%></span>
+						</c:if>
 						<liferay-ui:ratings className="<%=assetEntry.getClassName()%>"
-							classPK="<%=assetEntry.getClassPK()%>" type="<%=ratingsType%>" />
+									classPK="<%=assetEntry.getClassPK()%>" type="<%=ratingsType%>" />
+						<c:choose>
+							<c:when test="<%=!(themeDisplay.isSignedIn())%>">
+								<span class="sign-in rating-label-tsc after"><a href="<%=themeDisplay.getURLSignIn()%>">Entra</a> per esprimere il tuo gradimento</span>
+							</c:when>
+						</c:choose>
 					</div>
 				</c:if>
 			</div>
-			
+
 			<div class="span6">
 				<c:if
 					test='<%=enableSocialBookmarks && socialBookmarksDisplayPosition.equals("bottom") && !print%>'>
@@ -224,8 +247,7 @@
 			</div>
 		</div>
 
-		<c:if
-			test="<%=showContextLink && !print && assetEntry.isVisible()%>">
+		<c:if test="<%=showContextLink && !print && assetEntry.isVisible()%>">
 			<div class="asset-more">
 				<a
 					href="<%=assetRenderer.getURLViewInContext(liferayPortletRequest, liferayPortletResponse,
@@ -234,15 +256,14 @@
 			</div>
 		</c:if>
 
-		<br />
-
 		<c:if test="<%=enableRelatedAssets%>">
 			<liferay-ui:asset-links assetEntryId="<%=assetEntry.getEntryId()%>" />
 		</c:if>
 
 		<c:if
 			test="<%=Validator.isNotNull(assetRenderer.getDiscussionPath()) && enableComments%>">
-			<br />
+			
+			<h3 class="project-discussion-title">Discussione</h3>
 
 			<portlet:actionURL var="discussionURL">
 				<portlet:param name="struts_action"
@@ -254,8 +275,7 @@
 				formAction="<%=discussionURL%>"
 				formName='<%="fm" + assetEntry.getClassPK()%>'
 				ratingsEnabled="<%=enableCommentRatings%>"
-				redirect="<%=currentURL%>"
-				userId="<%=assetRenderer.getUserId()%>" />
+				redirect="<%=currentURL%>" userId="<%=assetRenderer.getUserId()%>" />
 		</c:if>
 	</div>
 
@@ -279,4 +299,14 @@
 </c:if>
 
 <%!private static Log _log = LogFactoryUtil
-			.getLog("portal-web.docroot.html.portlet.asset_publisher.display_full_content_jsp");%>
+			.getLog("portal-web.docroot.html.portlet.asset_publisher.display_full_content_jsp");
+
+	private RatingsStats getRatingsStats(List<RatingsStats> ratingsStatsList, long classPK) {
+		for (RatingsStats ratingsStats : ratingsStatsList) {
+			if (ratingsStats.getClassPK() == classPK) {
+				return ratingsStats;
+			}
+		}
+
+		return RatingsStatsUtil.create(0);
+	}%>

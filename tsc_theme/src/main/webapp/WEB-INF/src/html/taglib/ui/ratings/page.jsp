@@ -130,8 +130,10 @@ if (ratingsEntry != null) {
 							</div>
 							--%>
 
+							<%--
 							<c:choose>
 								<c:when test="<%= themeDisplay.isSignedIn() %>">
+							--%>
 									<c:choose>
 										<c:when test="<%= TrashUtil.isInTrash(className, classPK) %>">
 											<span class="rating-element rating-<%= (yourScore > 0) ? "on" : "off" %> rating-thumb-up" title="<liferay-ui:message key="ratings-are-disabled-because-this-entry-is-in-the-recycle-bin" />"></span>
@@ -167,8 +169,10 @@ if (ratingsEntry != null) {
 											</div>
 										</c:otherwise>
 									</c:choose>
+							<%--
 								</c:when>
 							</c:choose>
+							--%>
 						</liferay-util:whitespace-remover>
 					</div>
 				</div>

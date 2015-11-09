@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.xml.Element;
+import com.liferay.portal.kernel.xml.Node;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
 import com.liferay.portal.kernel.xml.XPath;
 import com.liferay.portal.util.PortalUtil;
@@ -84,8 +85,11 @@ public class TscUtil {
 					JournalArticle article = JournalArticleLocalServiceUtil.getLatestArticle(entry.getClassPK());
 					try {
 						Element el = SAXReaderUtil.read(article.getContent()).getRootElement();
-						String elementString = xpath.selectSingleNode(el).getStringValue();
-						map.put(key, elementString.trim());
+						Node singleNode = xpath.selectSingleNode(el);
+						if (singleNode != null) {
+							String elementString = singleNode.getStringValue();
+							map.put(key, elementString.trim());
+						}
 					} catch (Exception e) {
 						e.printStackTrace();
 						continue;

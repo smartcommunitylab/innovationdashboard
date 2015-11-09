@@ -41,7 +41,7 @@ import com.liferay.util.bridges.mvc.MVCPortlet;
  */
 public class InnoboardAdmin extends MVCPortlet {
 
-	public static final String PROJECT_STRUCTURE_NAME = "TSC Project structure 2";
+	public static final String PROJECT_STRUCTURE_NAME = "TSC Project structure";
 	public static final String PROJECT_TEMPLATE_NAME = "TSC Project template";
 	
 	public void uploadData(ActionRequest actionRequest, ActionResponse actionResponse) {
@@ -51,7 +51,7 @@ public class InnoboardAdmin extends MVCPortlet {
 		System.err.println("FILE UPLOADED " + file.getName());
 		
 		try {
-			deleteSavedJournals();
+			// deleteSavedJournals();
 			
 			long groupdId = ServiceContextFactory.getInstance(actionRequest).getScopeGroupId();
 			long userId = ServiceContextFactory.getInstance(actionRequest).getUserId();
@@ -117,6 +117,7 @@ public class InnoboardAdmin extends MVCPortlet {
 				Role role = RoleLocalServiceUtil.getRole(companyId, RoleConstants.USER);
 				ResourcePermissionLocalServiceUtil.addResourcePermission(0L, JournalArticle.class.getName(), ResourceConstants.SCOPE_COMPANY, Long.toString(newArticle.getResourcePrimKey()), role.getRoleId(), ActionKeys.VIEW);
 				JournalArticleLocalServiceUtil.updateArticleTranslation(groupId, article.getArticleId(), newArticle.getVersion(), Locale.ITALY, article.getTitle(Locale.ITALY), article.getDescription(Locale.ITALY), contents.get(title).getContent(), new TreeMap<String, byte[]>(), serviceContext);
+				JournalArticleLocalServiceUtil.addArticleResources(newArticle, true, true);
 			} else {
 				Map<Locale, String> titleMap = Maps.newHashMap();
 				titleMap.put(Locale.US, title);

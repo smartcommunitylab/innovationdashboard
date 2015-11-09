@@ -1,3 +1,4 @@
+<#setting locale="it_IT">
 <#assign TSCU = staticUtil["it.smartcommunitylab.tsc.utils.TscUtil"] />
 <#assign Validator = staticUtil["com.liferay.portal.kernel.util.Validator"] />
 <#assign ACLSU = staticUtil["com.liferay.portlet.asset.service.AssetCategoryLocalServiceUtil"] />
@@ -157,7 +158,7 @@
         </div>
     </div>
     <div class="span6">
-        <h6 class="project-update">Dettagli aggiornati al</h6>
+        <!-- <h6 class="project-update">Dettagli aggiornati al</h6> -->
         <h6 class="project-progress-title">Stato di avanzamento</h6>
         <div class="row-fluid project-progress-container">
             <div class="span4 project-progress-step project-progress-step-1 ${statoAvanzamento1}">
@@ -284,31 +285,31 @@
                     <ul>
                         <li>
                             <i class="smart-price"></i>
-                            <span>< 100K</span>
+                            <span>minore di € 100.000</span>
                         </li>
                         <li>
                             <#list 1..2 as v>
                         		<i class="smart-price"></i>
                         	</#list>
-                            <span>100K - 500K</span>
+                            <span>tra € 100.000 e € 500.000</span>
                         </li>
                         <li>
                             <#list 1..3 as v>
                         		<i class="smart-price"></i>
                         	</#list>
-                            <span>500K - 1M</span>
+                            <span>tra € 500.000 e € 1.000.000</span>
                         </li>
                         <li>
                             <#list 1..4 as v>
                         		<i class="smart-price"></i>
                         	</#list>
-                            <span>1M - 5M</span>
+                            <span>tra € 1.000.000 e € 5.000.000</span>
                         </li>
                         <li>
                             <#list 1..5 as v>
                         		<i class="smart-price"></i>
                         	</#list>
-                            <span>> 5M</span>
+                            <span>più di € 5.000.000</span>
                         </li>
                     </ul>
                 </div>
@@ -331,17 +332,17 @@
                             <#assign dkeys = djson?keys />
                             <#list dkeys as k>
                             	<#if k == 'Struttura comunale'>
-                            		<i class="smart-pa"></i>
+                            		<i class="smart-pa project-tooltip" title="Struttura comunale"></i>
                             	<#elseif k == 'Cittadini'>
-                            		<i class="smart-citizen"></i>
+                            		<i class="smart-citizen project-tooltip" title="Cittadini"></i>
                             	<#elseif k == 'City user'>
-                            		<i class="smart-city-user"></i>
+                            		<i class="smart-city-user project-tooltip" title="City user"></i>
                             	<#elseif k == 'Imprese'>
-                            		<i class="smart-company"></i>
+                            		<i class="smart-company project-tooltip" title="Imprese"</i>
                             	<#elseif k == 'Organizzazioni terzo settore'>
-                            		<i class="smart-non-profit"></i>
+                            		<i class="smart-non-profit project-tooltip" title="Organizzazioni terzo settore"></i>
                             	<#elseif k == 'Altre pubbliche amministrazioni'>
-                            		<i class="smart-pa-plus"></i>
+                            		<i class="smart-pa-plus project-tooltip" title="Altre pubbliche amministrazioni"></i>
                             	<#else>
                             		<i class="smart-other"></i>
                             	</#if>
@@ -353,41 +354,28 @@
                     <th style="background-color:${colorRgba}">Scala di intervento</th>
                     <td>
                         <div class="project-data" style="background-color:${colorRgba}">
-                            <i class="smart-territory-radius"></i>
-                            <i class="smart-territory-radius"></i>
+                            <#list 1..scalaGeograficaIndex as sgi>
+                        		<i class="smart-territory-radius project-tooltip" title="${scalaGeografica.getData()}"></i>
+                        	</#list>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <th style="background-color:${colorRgba}">Sostenibilità sociale</th>
+                    <th style="background-color:${colorRgba}">Sostenibilità</th>
                     <td>
                         <div class="project-data" style="background-color:${colorRgba}">
                             <#assign ssn = getterUtil.getNumber(sostenibilitaSociale.getData()) />
-                        	<#list 1..ssn as s>
-                        		<i class="smart-social"></i>
-                        	</#list>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="background-color:${colorRgba}">Sostenibilità ambientale</th>
-                    <td>
-                        <div class="project-data" style="background-color:${colorRgba}">
                             <#assign san = getterUtil.getNumber(sostenibilitaAmbientale.getData()) />
-                            <#list 1..san as s>
-                            	<i class="smart-environment"></i>
-                        	</#list>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th style="background-color:${colorRgba}">Sostenibilità economica</th>
-                    <td>
-                        <div class="project-data" style="background-color:${colorRgba}">
                             <#assign sen = getterUtil.getNumber(sostenibilitaEconomica.getData()) />
-                            <#list 1..sen as s>
-                            	<i class="smart-economy"></i>
-                        	</#list>
+                            <#if (ssn > 1)>
+                        		<i class="smart-social project-tooltip" title="Sostenibilità sociale"></i>
+                        	</#if>
+                        	<#if (san > 1)>
+                        		<i class="smart-environment project-tooltip" title="Sostenibilità ambientale"></i>
+                        	</#if>
+                        	<#if (sen > 1)>
+                        		<i class="smart-economy project-tooltip" title="Sostenibilità economica"></i>
+                        	</#if>
                         </div>
                     </td>
                 </tr>
@@ -396,39 +384,60 @@
                     <td>
                         <div class="project-data" style="background-color:${colorRgba}">
                         	<#list 1..valoreComplessivoIndex as vci>
-                        		<i class="smart-price"></i>
+                        		<i class="smart-price project-tooltip" title="${valoreComplessivoNumber?string.currency}"></i>
                         	</#list>
                         </div>
                     </td>
                 </tr>
             </table>
         </div>
+        <div class="row-fluid project-actions">
+            <div class="span6">
+                <a class="btn btn-tsc" href="http://italiansmartcity.it/city_detail.php?city=001272" target="_blank">Maggiori informazioni su italiansmartcity.it</a>
+            </div>
+            <div class="span6">
+                <a class="btn btn-tsc" href="#">Segnala un progetto simile</a>
+            </div>
+        </div>
     </div>
 </div>
 
 <#if (Validator.isNotNull(media) && (media.getSiblings()?size > 0) && (Validator.isNotNull(media.getSiblings()[0].getData())))>
     <#assign mediaList = media.getSiblings() />
-    <div class="row-fluid">
-        <div class="span12">
-            <div class="project-media">
-                <h4>Contenuti media</h4>
-                <ul id="project-media-gallery">
-                    <#list mediaList as m>
-                        <li>
+<#else>
+    <#assign mediaList = ['http://lorempixel.com/600/400/city/', 'http://lorempixel.com/600/400/transport/', 'http://lorempixel.com/600/400/nature/', 'http://lorempixel.com/600/400/business/', 'http://lorempixel.com/600/400/nightlife/', 'http://lorempixel.com/600/400/food/'] />
+</#if>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="project-media">
+            <h4>Contenuti media</h4>
+            <ul id="project-media-gallery">
+                <#list mediaList as m>
+                    <li>
+                        <#if m?is_string>
+                            <img src="${m}" />
+                        <#else>
                             <img src="${m.getData()}" />
-                        </li>
-                    </#list>
-                </ul>
-            </div>
+                        </#if>
+                    </li>
+                </#list>
+            </ul>
         </div>
     </div>
+</div>
+<script type="text/javascript">
+    $("#project-media-gallery").lightSlider({
+        pager: false,
+        adaptiveHeight: true,
+        prevHtml: '<i class="icon-chevron-left"></i>',
+        nextHtml: '<i class="icon-chevron-right"></i>'
+    });
     
-    <script type="text/javascript">
-        $("#project-media-gallery").lightSlider({
-            pager: false,
-            adaptiveHeight: true,
-            prevHtml: '<i class="icon-chevron-left"></i>',
-            nextHtml: '<i class="icon-chevron-right"></i>'
-        });
-    </script>
-</#if>
+    YUI().ready('aui-tooltip', function(Y) {
+        new Y.TooltipDelegate(
+            {
+                trigger: '.project-tooltip'
+            }
+        );
+    });
+</script>
