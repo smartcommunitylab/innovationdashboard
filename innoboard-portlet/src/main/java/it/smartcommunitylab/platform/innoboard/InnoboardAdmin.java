@@ -51,7 +51,7 @@ public class InnoboardAdmin extends MVCPortlet {
 		System.err.println("FILE UPLOADED " + file.getName());
 
 		try {
-			deleteSavedJournals();
+			// deleteSavedJournals();
 
 			long groupdId = ServiceContextFactory.getInstance(actionRequest).getScopeGroupId();
 			long userId = ServiceContextFactory.getInstance(actionRequest).getUserId();
