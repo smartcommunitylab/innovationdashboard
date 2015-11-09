@@ -51,7 +51,7 @@ public class InnoboardAdmin extends MVCPortlet {
 		System.err.println("FILE UPLOADED " + file.getName());
 
 		try {
-			// deleteSavedJournals();
+			deleteSavedJournals();
 
 			long groupdId = ServiceContextFactory.getInstance(actionRequest).getScopeGroupId();
 			long userId = ServiceContextFactory.getInstance(actionRequest).getUserId();
@@ -71,7 +71,6 @@ public class InnoboardAdmin extends MVCPortlet {
 			projectConverter.modifyContents(contents, saved);
 
 			addArticles(groupdId, userId, contents, saved);
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -130,7 +129,7 @@ public class InnoboardAdmin extends MVCPortlet {
 						article.getDescription(Locale.ITALY), contents.get(title).getContent(),
 						new TreeMap<String, byte[]>(), serviceContext);
 				JournalArticleLocalServiceUtil.addArticleResources(newArticle, true, true);
-				System.out.print(" ...Updated.");
+				System.out.println(" ...Updated.");
 			} else {
 				Map<Locale, String> titleMap = Maps.newHashMap();
 				titleMap.put(Locale.US, title);
@@ -154,7 +153,7 @@ public class InnoboardAdmin extends MVCPortlet {
 				// Long.toString(added.getResourcePrimKey()), role.getRoleId(),
 				// ActionKeys.VIEW);
 				JournalArticleLocalServiceUtil.addArticleResources(added, true, true);
-				System.out.print(" ...Created.");
+				System.out.println(" ...Created.");
 			}
 		}
 	}
